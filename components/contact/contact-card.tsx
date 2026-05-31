@@ -5,7 +5,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 
 import { ContactCardCtas } from "./contact-card-ctas";
-import { FadeIn } from "@/components/ui/motion-primitives";
+import { ScrollFadeIn } from "@/components/ui/motion-primitives";
 import { useI18n } from "@/lib/i18n";
 import { ShaderFlow } from "../shaders/shader-flow";
 import { trackContactClick } from "@/lib/mixpanel";
@@ -31,7 +31,7 @@ export function ContactCard(): ReactNode {
 
   return (
     <section className="mx-auto my-12 w-full max-w-275 px-6 sm:my-20 sm:px-10">
-      <FadeIn>
+      <ScrollFadeIn>
         <div className="border-foreground/8 bg-background relative w-full overflow-hidden rounded-4xl border p-1.5 shadow-sm">
           <div className="relative w-full overflow-hidden rounded-[1.6rem]">
             <ShaderBackground />
@@ -69,7 +69,7 @@ export function ContactCard(): ReactNode {
             </div>
           </div>
         </div>
-      </FadeIn>
+      </ScrollFadeIn>
     </section>
   );
 }

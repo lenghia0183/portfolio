@@ -5,7 +5,7 @@ import { PolaroidStrip } from "@/components/about/polaroid-strip";
 import { Skills } from "@/components/about/skills";
 import { Stack } from "@/components/about/stack";
 import { ContactCard } from "@/components/contact/contact-card";
-import { FadeIn } from "@/components/ui/motion-primitives";
+import { ScrollFadeIn } from "@/components/ui/motion-primitives";
 import { createMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
@@ -28,14 +28,12 @@ export default function AboutPage(): ReactNode {
       </section>
 
       <section className="mx-auto w-full max-w-[40rem] px-6 pb-20 sm:px-10 sm:pb-28">
-        <FadeIn delay={0.1}>
-          <div className="flex flex-col gap-10">
-            <Experience />
-            <Education />
-            <Skills />
-            <Stack />
-          </div>
-        </FadeIn>
+        <div className="flex flex-col gap-10">
+          <ScrollFadeIn delay={0}><Experience /></ScrollFadeIn>
+          <ScrollFadeIn delay={0.05}><Education /></ScrollFadeIn>
+          <ScrollFadeIn delay={0.05}><Skills /></ScrollFadeIn>
+          <ScrollFadeIn delay={0.05}><Stack /></ScrollFadeIn>
+        </div>
       </section>
 
       <ContactCard />

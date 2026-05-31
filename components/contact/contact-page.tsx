@@ -2,7 +2,7 @@
 
 import { ContactButton } from "@/components/contact/contact-button";
 import { GridBackground } from "@/components/ui/grid-background";
-import { FadeIn, ScaleUnblur } from "@/components/ui/motion-primitives";
+import { FadeIn, ScrollFadeIn, ScaleUnblur } from "@/components/ui/motion-primitives";
 import { useI18n } from "@/lib/i18n";
 import { CONTACT_CHANNELS, OWNER, SOCIAL_LINKS, type ContactChannel } from "@/lib/constants";
 import { track, trackContactClick, EVENTS } from "@/lib/mixpanel";
@@ -97,7 +97,7 @@ export function ContactPageContent(): ReactNode {
       </section>
 
       <section className="mx-auto grid w-full max-w-275 gap-6 px-6 pb-24 sm:px-10 sm:pb-32 lg:grid-cols-[0.85fr_1.15fr]">
-        <FadeIn delay={0.12}>
+        <ScrollFadeIn delay={0.12}>
           <div className="border-foreground/8 bg-foreground/[0.025] rounded-3xl border p-6">
             <div className="flex items-center gap-3">
               <span className="border-foreground/10 bg-background inline-flex h-10 w-10 items-center justify-center rounded-xl border">
@@ -123,9 +123,9 @@ export function ContactPageContent(): ReactNode {
               ))}
             </div>
           </div>
-        </FadeIn>
+        </ScrollFadeIn>
 
-        <FadeIn delay={0.18}>
+        <ScrollFadeIn delay={0.18}>
           <div className="border-foreground/8 bg-background rounded-3xl border p-6">
             <p className="font-mono text-[12px] uppercase tracking-[0.18em] text-foreground/38">
               {t.contact.projectBriefTitle}
@@ -142,7 +142,7 @@ export function ContactPageContent(): ReactNode {
               ))}
             </div>
           </div>
-        </FadeIn>
+        </ScrollFadeIn>
       </section>
     </main>
   );

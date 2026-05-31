@@ -1,6 +1,6 @@
 "use client";
 
-import { FadeIn } from "@/components/ui/motion-primitives";
+import { ScrollFadeIn } from "@/components/ui/motion-primitives";
 import { useI18n } from "@/lib/i18n";
 import type { ReactNode } from "react";
 
@@ -8,7 +8,7 @@ export function AboutIntro(): ReactNode {
   const { t } = useI18n();
 
   return (
-    <FadeIn delay={0.5}>
+    <ScrollFadeIn delay={0.1}>
       <div className="border-foreground/5 bg-foreground/1.5 dark:bg-foreground/3 rounded-4xl border p-8 sm:p-12">
         <h1 className="text-foreground font-serif text-[1.75rem] font-medium tracking-tight sm:text-[2rem]">
           {t.about.greeting}{" "}
@@ -23,6 +23,6 @@ export function AboutIntro(): ReactNode {
           ))}
         </div>
       </div>
-    </FadeIn>
+    </ScrollFadeIn>
   );
 }

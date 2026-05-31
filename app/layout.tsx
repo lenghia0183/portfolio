@@ -1,6 +1,7 @@
 import { Nav } from "@/components/layout/nav";
 import { GoToTop } from "@/components/layout/go-to-top";
 import { Footer } from "@/components/layout/footer";
+import { ScrollProgress } from "@/components/layout/scroll-progress";
 import { PageBackdrop } from "@/components/layout/page-backdrop";
 import { MouseGlow } from "@/components/layout/mouse-glow";
 import { Providers } from "@/components/layout/providers";
@@ -65,6 +66,7 @@ export default function RootLayout({
           <SkipToContent />
           <PageBackdrop />
           <MouseGlow />
+          <ScrollProgress />
           <Nav />
           <GoToTop />
           {children}

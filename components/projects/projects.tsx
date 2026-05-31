@@ -13,7 +13,8 @@ import type { ComponentType, ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { FadeIn } from "@/components/ui/motion-primitives";
+import { FadeIn, ScrollFadeIn } from "@/components/ui/motion-primitives";
+import { useRef, type MouseEvent as ReactMouseEvent } from "react";
 import { dictionaries, useI18n } from "@/lib/i18n";
 import { track, EVENTS } from "@/lib/mixpanel";
 
@@ -92,21 +93,21 @@ export function Projects({
     <section className="relative w-full">
       <div className="mx-auto w-full max-w-275 px-6 sm:px-10">
         {withHeadline ? (
-          <FadeIn className="flex flex-col items-center gap-5 pt-12 pb-10 text-center sm:pt-20 sm:pb-14">
+          <ScrollFadeIn className="flex flex-col items-center gap-5 pt-12 pb-10 text-center sm:pt-20 sm:pb-14">
             <h2 className="text-foreground font-serif text-[2.5rem] leading-[1.05] font-medium tracking-tight md:text-[3rem] lg:text-[3.5rem]">
               {t.projects.title}
             </h2>
             <p className="text-foreground/65 max-w-[42ch] text-[18px] leading-[1.45] tracking-tight sm:text-[20px]">
               {t.projects.description}
             </p>
-          </FadeIn>
+          </ScrollFadeIn>
         ) : null}
 
         {groups ? (
           <div className="flex flex-col gap-14">
             {groups.map((group) => (
               <div key={group.label}>
-                <FadeIn>
+                <ScrollFadeIn>
                   <div className="mb-6 flex items-center gap-3">
                     {group.logoUrl ? (
                       <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-foreground/10 bg-white">
@@ -117,7 +118,7 @@ export function Projects({
                       {group.label}
                     </h3>
                   </div>
-                </FadeIn>
+                </ScrollFadeIn>
                 <div className="grid gap-6 lg:grid-cols-2">
                   {group.projects.map((project, i) => (
                     <ProjectCard
@@ -188,9 +189,33 @@ function ProjectCard({
   const githubLink = "githubLink" in content ? content.githubLink : null;
   const logoUrl = "logoUrl" in content ? content.logoUrl : null;
 
+  const cardRef = useRef<HTMLElement>(null);
+
+  const handleMouseMove = (e: ReactMouseEvent<HTMLElement>) => {
+    const card = cardRef.current;
+    if (!card) return;
+    const { left, top, width, height } = card.getBoundingClientRect();
+    const x = (e.clientX - left) / width - 0.5;
+    const y = (e.clientY - top) / height - 0.5;
+    card.style.transform = `perspective(800px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg) scale(1.01)`;
+  };
+
+  const handleMouseLeave = () => {
+    const card = cardRef.current;
+    if (!card) return;
+    card.style.transform = "perspective(800px) rotateY(0deg) rotateX(0deg) scale(1)";
+  };
+
   return (
     <FadeIn delay={Math.min(index * 0.08, 0.24)}>
-      <article id={project.id} className="project-card border-foreground/8 bg-background flex h-full flex-col gap-5 rounded-3xl border p-4 shadow-[0_8px_32px_rgba(0,0,0,0.16)] sm:p-5 dark:shadow-[0_8px_40px_rgba(0,0,0,0.6)]">
+      <article
+        ref={cardRef}
+        id={project.id}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        style={{ transition: "transform 0.15s ease" }}
+        className="project-card border-foreground/8 bg-background flex h-full flex-col gap-5 rounded-3xl border p-4 shadow-[0_8px_32px_rgba(0,0,0,0.16)] sm:p-5 dark:shadow-[0_8px_40px_rgba(0,0,0,0.6)]"
+      >
         <div
           className="relative overflow-hidden rounded-2xl p-4
             border border-slate-200 bg-linear-to-br from-slate-100 to-slate-50

@@ -7,6 +7,7 @@ import { useI18n } from "@/lib/i18n";
 import { track, EVENTS } from "@/lib/mixpanel";
 import { ASSETS } from "@/lib/constants";
 import { HeroCtas } from "./hero-ctas";
+import { TextScramble } from "./text-scramble";
 import { PortraitMorph } from "./portrait-morph";
 
 export function Hero(): ReactNode {
@@ -22,12 +23,8 @@ export function Hero(): ReactNode {
             </p>
 
             <h1 className="text-foreground text-[2.75rem] leading-[1.05] font-medium tracking-tight md:text-[2.5rem] lg:text-[3.65rem]">
-              <span className="block md:whitespace-nowrap">
-                {t.hero.titleLine1}
-              </span>
-              <span className="block md:whitespace-nowrap">
-                {t.hero.titleLine2}
-              </span>
+              <TextScramble text={t.hero.titleLine1} delay={0.3} className="block md:whitespace-nowrap" />
+              <TextScramble text={t.hero.titleLine2} delay={0.6} className="block md:whitespace-nowrap" />
             </h1>
 
             <p className="text-foreground/65 max-w-[34ch] text-[22px] leading-[1.4] tracking-tight">

@@ -1,14 +1,14 @@
 "use client";
 
-import { motion } from "motion/react";
-import type { ReactNode } from "react";
+import { motion, useInView } from "motion/react";
+import { useRef, type ReactNode } from "react";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 export function FadeIn({
   children,
   delay = 0,
-  duration = 0.8,
+  duration = 1.7,
   className,
 }: {
   children: ReactNode;
@@ -18,8 +18,35 @@ export function FadeIn({
 }): ReactNode {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 12 }}
+      initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
+      transition={{ duration, delay, ease: EASE }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+export function ScrollFadeIn({
+  children,
+  delay = 0,
+  duration = 1.6,
+  className,
+}: {
+  children: ReactNode;
+  delay?: number;
+  duration?: number;
+  className?: string;
+}): ReactNode {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-60px" });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 24 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration, delay, ease: EASE }}
       className={className}
     >

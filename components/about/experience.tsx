@@ -1,6 +1,6 @@
 "use client";
 
-import { FadeIn } from "@/components/ui/motion-primitives";
+import { ScrollFadeIn } from "@/components/ui/motion-primitives";
 import { useI18n } from "@/lib/i18n";
 import Image from "next/image";
 import Link from "next/link";
@@ -36,7 +36,7 @@ export function Experience(): ReactNode {
 
       <div className="relative flex flex-col gap-4">
         {entries.map((entry, index) => (
-          <FadeIn key={entry.company} delay={index * 0.08}>
+          <ScrollFadeIn key={entry.company} delay={index * 0.08}>
             <article className="about-card border-foreground/8 bg-background/80 rounded-3xl border p-5 backdrop-blur sm:p-6">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                 <div className="flex items-center gap-3">
@@ -135,7 +135,7 @@ export function Experience(): ReactNode {
                 </div>
               ) : null}
             </article>
-          </FadeIn>
+          </ScrollFadeIn>
         ))}
       </div>
     </div>

@@ -4,6 +4,7 @@ import { Github, Linkedin, Facebook, Mail } from "lucide-react";
 import Link from "next/link";
 import { useI18n } from "@/lib/i18n";
 import { SOCIAL_LINKS, OWNER } from "@/lib/constants";
+import { ScrollFadeIn } from "@/components/ui/motion-primitives";
 import type { ReactNode } from "react";
 
 const NAV_LINKS = [
@@ -25,6 +26,7 @@ export function Footer(): ReactNode {
 
   return (
     <footer className="mt-24 border-t border-foreground/8">
+      <ScrollFadeIn>
       <div className="mx-auto max-w-5xl px-6 py-12">
         <div className="flex flex-col gap-10 sm:flex-row sm:items-start sm:justify-between">
           {/* Left — name + tagline */}
@@ -78,6 +80,7 @@ export function Footer(): ReactNode {
           </p>
         </div>
       </div>
+      </ScrollFadeIn>
     </footer>
   );
 }
