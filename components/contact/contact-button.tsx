@@ -7,8 +7,9 @@ import { useState } from "react";
 import type { ReactNode } from "react";
 import { useI18n } from "@/lib/i18n";
 import { track, EVENTS } from "@/lib/mixpanel";
+import { OWNER } from "@/lib/constants";
 
-const EMAIL = "lenghia0108@gmail.com";
+const EMAIL = OWNER.email;
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 export function ContactButton({ href }: { href?: string } = {}): ReactNode {

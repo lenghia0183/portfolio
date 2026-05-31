@@ -7,6 +7,7 @@ import type { ReactNode } from "react";
 
 import { ContactButton } from "./contact-button";
 import { useI18n } from "@/lib/i18n";
+import { ASSETS } from "@/lib/constants";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -28,7 +29,7 @@ export function ContactCardCtas(): ReactNode {
           className="flex flex-wrap gap-3"
         >
           <Link
-            href="/Le-Cong-Nghia-CV.pdf"
+            href={ASSETS.cv}
             className="border-foreground/5 focus-ring group bg-background text-foreground inline-flex cursor-pointer items-center gap-2 rounded-xl border px-5 py-2.5 text-sm font-medium shadow-md/2 transition-colors"
           >
             {t.contact.downloadCv}

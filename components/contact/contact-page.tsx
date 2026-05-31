@@ -2,6 +2,7 @@
 
 import { ContactButton } from "@/components/contact/contact-button";
 import { track, EVENTS } from "@/lib/mixpanel";
+import { OWNER, SOCIAL_LINKS } from "@/lib/constants";
 import { FadeIn, ScaleUnblur } from "@/components/ui/motion-primitives";
 import { useI18n } from "@/lib/i18n";
 import {
@@ -28,36 +29,11 @@ type Channel = {
 };
 
 const CHANNELS: Channel[] = [
-  {
-    label: "Email",
-    value: "lenghia0108@gmail.com",
-    href: "mailto:lenghia0108@gmail.com",
-    icon: Mail,
-  },
-  {
-    label: "Phone",
-    value: "0966 859 061",
-    href: "tel:+84966859061",
-    icon: Phone,
-  },
-  {
-    label: "GitHub",
-    value: "github.com/lenghia0183",
-    href: "https://github.com/lenghia0183",
-    icon: Github,
-  },
-  {
-    label: "LinkedIn",
-    value: "nghia-le-366628384",
-    href: "https://www.linkedin.com/in/nghia-le-366628384/",
-    icon: Linkedin,
-  },
-  {
-    label: "Facebook",
-    value: "nghia.cong.le.2024",
-    href: "https://www.facebook.com/nghia.cong.le.2024",
-    icon: Facebook,
-  },
+  { label: "Email",    value: OWNER.email,          href: SOCIAL_LINKS.email,    icon: Mail },
+  { label: "Phone",   value: OWNER.phoneDisplay,    href: SOCIAL_LINKS.phone,    icon: Phone },
+  { label: "GitHub",  value: "github.com/lenghia0183", href: SOCIAL_LINKS.github, icon: Github },
+  { label: "LinkedIn",value: "nghia-le-366628384",  href: SOCIAL_LINKS.linkedin, icon: Linkedin },
+  { label: "Facebook",value: "nghia.cong.le.2024",  href: SOCIAL_LINKS.facebook, icon: Facebook },
 ];
 
 const WORK_ITEMS_EN = [
@@ -118,7 +94,7 @@ export function ContactPageContent(): ReactNode {
           <div className="flex flex-wrap items-center gap-3">
             <ContactButton />
             <Link
-              href="mailto:lenghia0108@gmail.com"
+              href={SOCIAL_LINKS.email}
               onClick={() => track(EVENTS.BAM_LAM_VIEC_CUNG_NHAU)}
               className="border-foreground/8 focus-ring group bg-background text-foreground hover:bg-foreground/[0.04] inline-flex items-center gap-2 rounded-xl border px-5 py-2.5 text-sm font-medium transition-colors"
             >

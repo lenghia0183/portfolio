@@ -9,6 +9,7 @@ import { FadeIn } from "@/components/ui/motion-primitives";
 import { useI18n } from "@/lib/i18n";
 import { ShaderFlow } from "../shaders/shader-flow";
 import { track, EVENTS } from "@/lib/mixpanel";
+import { SOCIAL_LINKS } from "@/lib/constants";
 
 const CARD_FADE_MASK =
   "radial-gradient(ellipse 90% 110% at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.92) 40%, rgba(0,0,0,0.7) 70%, rgba(0,0,0,0.4) 90%, rgba(0,0,0,0.15) 100%)";
@@ -63,31 +64,11 @@ export function ContactCard(): ReactNode {
 
                 {/* social icons */}
                 <div className="relative flex flex-wrap items-center justify-center gap-2.5">
-                  <SocialIcon
-                    href="mailto:lenghia0108@gmail.com"
-                    label={t.contact.email}
-                    lucideIcon={Mail}
-                  />
-                  <SocialIcon
-                    href="tel:+84966859061"
-                    label={t.contact.phone}
-                    lucideIcon={Phone}
-                  />
-                  <SocialIcon
-                    href="https://github.com/lenghia0183"
-                    label={t.contact.github}
-                    lucideIcon={Github}
-                  />
-                  <SocialIcon
-                    href="https://www.linkedin.com/in/nghia-le-366628384/"
-                    label={t.contact.linkedin}
-                    lucideIcon={Linkedin}
-                  />
-                  <SocialIcon
-                    href="https://www.facebook.com/nghia.cong.le.2024"
-                    label={t.contact.facebook}
-                    lucideIcon={Facebook}
-                  />
+                  <SocialIcon href={SOCIAL_LINKS.email} label={t.contact.email} lucideIcon={Mail} />
+                  <SocialIcon href={SOCIAL_LINKS.phone} label={t.contact.phone} lucideIcon={Phone} />
+                  <SocialIcon href={SOCIAL_LINKS.github} label={t.contact.github} lucideIcon={Github} />
+                  <SocialIcon href={SOCIAL_LINKS.linkedin} label={t.contact.linkedin} lucideIcon={Linkedin} />
+                  <SocialIcon href={SOCIAL_LINKS.facebook} label={t.contact.facebook} lucideIcon={Facebook} />
                 </div>
 
                 {/* footer */}
