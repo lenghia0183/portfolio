@@ -228,7 +228,7 @@
     "techCategories": [
       ["Languages", "TypeScript", "JavaScript"],
       ["Frontend", "ReactJS", "Next.js", "Remix", "React Query", "React Hook Form", "Redux", "Formik"],
-      ["UI & Styling", "TailwindCSS", "Material UI"],
+      ["UI & Styling", "TailwindCSS", "Material UI", "Shadcn UI", "Polaris"],
       ["Backend", "NestJS", "Node.js", "ExpressJS", "KoaJS", "GraphQL"],
       ["Database", "MySQL", "MongoDB", "Redis"],
       ["Shopify Platform", "Shopify API", "Shopify CLI", "Shopify Storefront"],
