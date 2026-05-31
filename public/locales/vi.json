@@ -1,0 +1,278 @@
+{
+  "skipToContent": "Bỏ qua đến nội dung chính",
+  "nav": {
+    "label": "Chính",
+    "home": "Trang chủ",
+    "projects": "Sản phẩm",
+    "about": "Giới thiệu",
+    "contact": "Liên hệ",
+    "language": "Đổi ngôn ngữ",
+    "english": "Tiếng Anh",
+    "vietnamese": "Tiếng Việt",
+    "themeLight": "Chuyển sang giao diện sáng",
+    "themeDark": "Chuyển sang giao diện tối",
+    "themeToggle": "Đổi giao diện"
+  },
+  "hero": {
+    "intro": "Lê Công Nghĩa",
+    "titleLine1": "Full-stack Developer",
+    "titleLine2": "Shopify App Developer",
+    "description": "Full-stack Engineer chuyên Shopify ecosystem — có thể phát triển từ backend services, hệ thống quản trị đến storefront runtime chạy trực tiếp trên theme của merchant.",
+    "portraitAlt": "Chân dung lập trình viên Lê Công Nghĩa",
+    "viewWork": "Xem dự án"
+  },
+  "contact": {
+    "button": "Liên hệ",
+    "copied": "Đã sao chép email",
+    "copy": "Sao chép",
+    "showEmail": "Hiện email",
+    "title": "Biến ý tưởng thành sản phẩm",
+    "description": "Nếu bạn quan tâm đến Shopify, phát triển sản phẩm web hoặc muốn cùng xây dựng một sản phẩm thực tế, hãy liên hệ với tôi.",
+    "seeProjects": "Xem sản phẩm",
+    "downloadCv": "Tải CV",
+    "hireMe": "Hire Me",
+    "workTogether": "Let's Work Together",
+    "builtWith": "2026 © Xây dựng với Next.js",
+    "byline": "Lê Công Nghĩa",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "email": "Email",
+    "phone": "Số điện thoại",
+    "facebook": "Facebook"
+  },
+  "projectsPage": {
+    "title": "Sản phẩm và dự án",
+    "description": "Các sản phẩm tôi đã xây dựng: từ Shopify apps production phục vụ hàng chục nghìn merchant, hệ thống quản lý nội bộ cấp doanh nghiệp, đến các side projects cá nhân."
+  },
+  "projects": {
+    "title": "Sản phẩm và dự án",
+    "description": "Các sản phẩm tôi đã xây dựng: từ Shopify apps production phục vụ hàng chục nghìn merchant, hệ thống quản lý nội bộ cấp doanh nghiệp, đến các side projects cá nhân.",
+    "viewAll": "Xem tất cả dự án",
+    "items": [
+      {
+        "title": "OPTIS Product Options, Variant",
+        "logoUrl": "https://production-options-bucket.s3.us-east-2.amazonaws.com/po/dev-nghia-lc.myshopify.com-33131/1780217903084-249192545-download2.png",
+        "description": "Shopify app cho product customization nâng cao — custom options, conditional logic, dynamic pricing và storefront product configuration vượt ngoài giới hạn variant mặc định của Shopify.",
+        "meta": "Full-stack Engineer / 20.000+ lượt cài đặt / 5 sao trên Shopify App Store",
+        "imageAlt": "Giao diện sản phẩm Shopify OPTIS",
+        "category": "Shopify App",
+        "link": "https://apps.shopify.com/product-options-by-bss",
+        "linkLabel": "Shopify App Store",
+        "scale": "20.000+ lượt cài đặt",
+        "rating": "5 sao trên Shopify App Store",
+        "features": [
+          "Custom product options (dropdown, checkbox, swatch, file upload, text...)",
+          "Conditional logic — hiện/ẩn option dựa trên lựa chọn của khách",
+          "Add-on pricing theo từng option",
+          "Live preview — khách thấy thay đổi ngay trên product page",
+          "Và nhiều tính năng tùy biến nâng cao khác"
+        ],
+        "responsibilities": [
+          "Phụ trách full-stack — giao diện quản trị, backend API & storefront runtime",
+          "Tham gia toàn bộ quá trình phát triển sản phẩm — từ phân tích yêu cầu, thiết kế kỹ thuật, phát triển tính năng đến triển khai production",
+          "Tham gia merchant support — xử lý vấn đề kỹ thuật, hỗ trợ khách hàng & góp phần tăng lượt cài đặt, lượt đánh giá và duy trì mức 5★ cho ứng dụng"
+        ],
+        "stack": ["React", "Remix", "NestJS", "KoaJS", "GraphQL", "MySQL", "Redis", "Shopify API"]
+      },
+      {
+        "title": "OP Color Swatch Variant Images",
+        "logoUrl": "https://production-options-bucket.s3.us-east-2.amazonaws.com/po/dev-nghia-lc.myshopify.com-33131/1780217912413-362617977-download3.png",
+        "description": "Shopify app cho variant experience nâng cao — nhiều kiểu hiển thị variant, variant-specific image galleries, product group, vượt ngoài giới hạn hiển thị variant mặc định của Shopify themes.",
+        "meta": "Full-stack Engineer / 10.000+ lượt cài đặt / 5 sao trên Shopify App Store",
+        "imageAlt": "Giao diện variant Shopify OP Color Swatch",
+        "category": "Shopify App",
+        "link": "https://apps.shopify.com/optis-color-swatch-variants",
+        "linkLabel": "Shopify App Store",
+        "scale": "10.000+ lượt cài đặt",
+        "rating": "5 sao trên Shopify App Store",
+        "features": [
+          "Visual swatches thay thế variant selector mặc định của Shopify",
+          "Variant image gallery — mỗi variant hiển thị bộ ảnh riêng",
+          "Combined listings — gộp nhiều sản phẩm thành 1 listing trên storefront",
+          "Collection page swatches — duyệt variant ngay tại trang collection",
+          "Và nhiều tính năng hiển thị nâng cao khác"
+        ],
+        "responsibilities": [
+          "Phụ trách full-stack — giao diện quản trị, backend API & storefront runtime",
+          "Tham gia toàn bộ quá trình phát triển sản phẩm — từ phân tích yêu cầu, thiết kế kỹ thuật, phát triển tính năng đến triển khai production",
+          "Tham gia merchant support — xử lý vấn đề kỹ thuật, hỗ trợ khách hàng & góp phần tăng lượt cài đặt, lượt đánh giá và duy trì mức 5★ cho ứng dụng"
+        ],
+        "stack": ["React", "Remix", "NestJS", "KoaJS", "GraphQL", "MySQL", "Redis", "Shopify API"]
+      },
+      {
+        "title": "HAUIFOOD",
+        "logoUrl": "https://production-options-bucket.s3.us-east-2.amazonaws.com/po/dev-nghia-lc.myshopify.com-33131/1780217954655-261312967-logo-square.23528da2d6c68d8beb4d.png",
+        "description": "Dự án cá nhân trong giai đoạn đại học — ứng dụng e-commerce cho đặt món trực tuyến, tập trung vào trải nghiệm người dùng, quy trình đặt hàng và tương tác realtime.",
+        "meta": "Dự án sinh viên / Frontend Developer / 03/2024 - 06/2024",
+        "imageAlt": "Giao diện dự án sinh viên HAUIFOOD",
+        "category": "Dự án sinh viên",
+        "link": "https://hauifood.com",
+        "linkLabel": "Live demo",
+        "githubLink": "https://github.com/haui-food",
+        "scale": "Dự án cá nhân",
+        "rating": "E-commerce · Frontend",
+        "features": [
+          "Trải nghiệm thương mại điện tử",
+          "Luồng mua hàng & tương tác khách hàng",
+          "Quản lý người dùng & xác thực",
+          "Đồng bộ dữ liệu realtime",
+          "Hỗ trợ đa ngôn ngữ"
+        ],
+        "responsibilities": [
+          "Phát triển frontend ReactJS",
+          "Tích hợp API & xử lý dữ liệu",
+          "Quản lý trạng thái ứng dụng",
+          "Triển khai tương tác realtime",
+          "Phân tích & xử lý lỗi"
+        ],
+        "stack": ["ReactJS", "JavaScript", "Material UI", "Bootstrap", "Redux Toolkit", "Axios", "SCSS", "Socket.IO Client", "i18n-react"]
+      },
+      {
+        "title": "Mid-Autumn",
+        "logoUrl": "https://production-options-bucket.s3.us-east-2.amazonaws.com/po/dev-nghia-lc.myshopify.com-33131/1780217933573-950668681-logo.png",
+        "description": "Dự án cá nhân trong giai đoạn đại học — ứng dụng bán bánh trung thu trực tuyến, tập trung vào trải nghiệm mua hàng, quản lý người dùng và quy trình bán hàng trên nền tảng web.",
+        "meta": "Dự án sinh viên / Full-stack Developer / 06/2024 - 10/2024",
+        "imageAlt": "Giao diện dự án sinh viên Mid-Autumn",
+        "category": "Dự án sinh viên",
+        "link": "https://mid-autumn-beta.vercel.app",
+        "linkLabel": "Live demo",
+        "githubLink": "https://github.com/lenghia0183/Mid-Autumn",
+        "scale": "Dự án cá nhân",
+        "rating": "Full-stack · Web App",
+        "features": [
+          "Trải nghiệm bán hàng trực tuyến",
+          "Quản lý tài khoản & xác thực",
+          "Quản lý media & nội dung",
+          "Hệ thống email notifications",
+          "Hỗ trợ đa ngôn ngữ"
+        ],
+        "responsibilities": [
+          "Full-stack",
+          "Phát triển frontend ReactJS",
+          "Xây dựng backend API",
+          "Xác thực & quản lý người dùng",
+          "Tích hợp dữ liệu & logic nghiệp vụ",
+          "Triển khai & tối ưu ứng dụng"
+        ],
+        "stack": ["ReactJS", "Tailwind CSS", "Axios", "SWR", "Formik", "Firebase", "ExpressJS", "MongoDB", "JWT", "Cloudinary", "NodeMailer"]
+      },
+      {
+        "title": "VTI Manufacturing Management Systems",
+        "logoUrl": "https://production-options-bucket.s3.us-east-2.amazonaws.com/po/dev-nghia-lc.myshopify.com-33131/1780217886120-686653139-download1.png",
+        "description": "Hệ thống quản lý nội bộ cho doanh nghiệp sản xuất — hỗ trợ quản lý vận hành nhà máy, quy trình sản xuất, quản lý kho, kiểm soát chất lượng và các nghiệp vụ doanh nghiệp. Tool nội bộ, không có public links.",
+        "meta": "VTI Solutions / ReactJS Intern / Internal enterprise tools",
+        "imageAlt": "Dự án hệ thống quản lý nội bộ tại VTI",
+        "category": "Hệ thống nội bộ",
+        "linkLabel": "Tool nội bộ — không có public link",
+        "scale": "Vận hành sản xuất",
+        "rating": "Không có public link",
+        "features": [
+          "Quản lý vận hành sản xuất",
+          "Quy trình nhà máy thông minh",
+          "Quản lý chất lượng",
+          "Module nghiệp vụ doanh nghiệp",
+          "Hệ thống quản trị nội bộ"
+        ],
+        "responsibilities": [
+          "Phát triển frontend ReactJS",
+          "Triển khai tính năng nghiệp vụ",
+          "Tích hợp API",
+          "Phân tích & xử lý bugs"
+        ],
+        "stack": ["ReactJS", "Material UI", "Redux", "Formik", "REST API", "Axios"]
+      }
+    ]
+  },
+  "about": {
+    "greeting": "Xin chào, tôi là",
+    "name": "Lê Công Nghĩa",
+    "paragraphs": [
+      "Sinh năm 2003, tôi là Full-stack Developer chuyên xây dựng Shopify applications và các sản phẩm web hướng tới nhu cầu thực tế. Tôi có kinh nghiệm làm việc từ backend services, hệ thống quản trị đến các thành phần xử lý logic phục vụ trực tiếp trải nghiệm của merchant.",
+      "Hiện tại, tôi đang làm việc tại BSS Commerce, tập trung vào Shopify platform development và phát triển các ứng dụng phục vụ hơn 30.000 merchant trên Shopify App Store.",
+      "Tôi ưu tiên phần mềm có cấu trúc rõ ràng, dễ bảo trì và dễ mở rộng — đồng thời yêu thích việc tìm ra những cách tiếp cận phù hợp cho các bài toán thực tế."
+    ],
+    "experience": "Kinh nghiệm",
+    "education": "Học vấn",
+    "skills": "Lĩnh vực quan tâm",
+    "stack": "Tech Stack",
+    "showLess": "Thu gọn",
+    "showMore": "Hiện thêm {count}",
+    "resetStack": "Đặt lại stack",
+    "skillsList": [
+      "Kiến trúc phần mềm",
+      "Clean Code",
+      "Developer Experience",
+      "Tối ưu hiệu năng"
+    ],
+    "techCategories": [
+      ["Languages", "TypeScript", "JavaScript"],
+      ["Frontend", "ReactJS", "Next.js", "Remix", "React Query", "React Hook Form", "Redux"],
+      ["UI & Styling", "TailwindCSS", "Material UI", "Formik"],
+      ["Backend", "NestJS", "Node.js", "ExpressJS", "KoaJS", "GraphQL"],
+      ["Database", "MySQL", "MongoDB", "Redis"],
+      ["Shopify Platform", "Shopify API", "Shopify CLI", "Shopify Storefront"],
+      ["DevOps", "Docker", "Cloudflare", "CI/CD"],
+      ["Cloud", "AWS S3", "Cloudflare"],
+      ["AI Tools", "Claude Code", "Cursor", "Codex"],
+      ["Domain", "Shopify", "Ecommerce", "CMS Systems"]
+    ],
+    "educationItems": [
+      {
+        "school": "Đại học Công nghiệp Hà Nội",
+        "degree": "Thạc sĩ — Hệ thống Thông tin",
+        "period": "2025 - Hiện tại",
+        "note": "Đang theo học",
+        "logoUrl": "https://production-options-bucket.s3.us-east-2.amazonaws.com/po/dev-nghia-lc.myshopify.com-33131/1780217978812-56616908-haui.png"
+      },
+      {
+        "school": "Đại học Công nghiệp Hà Nội",
+        "degree": "Software Engineering",
+        "period": "2021 - 2025",
+        "note": "GPA 3.48 / 4.0",
+        "logoUrl": "https://production-options-bucket.s3.us-east-2.amazonaws.com/po/dev-nghia-lc.myshopify.com-33131/1780217978812-56616908-haui.png"
+      }
+    ],
+    "experienceItems": [
+      {
+        "company": "BSS Commerce",
+        "logoUrl": "https://production-options-bucket.s3.us-east-2.amazonaws.com/po/dev-nghia-lc.myshopify.com-33131/1780217922968-943345868-download.png",
+        "role": "Full-stack Developer / Shopify App Developer",
+        "period": "2025 - Present",
+        "context": "Xây dựng Shopify applications cho product customization, variant experience và các bài toán ecommerce phục vụ hàng chục nghìn merchant trên Shopify App Store.",
+        "responsibilities": [
+          "Phát triển backend services & Shopify APIs",
+          "Xây dựng hệ thống quản trị & trải nghiệm merchant",
+          "Phát triển logic hoạt động trên theme của merchant",
+          "Tích hợp Shopify platform services",
+          "Hỗ trợ vận hành ứng dụng & xử lý vấn đề kỹ thuật"
+        ],
+        "modules": [
+          "OPTIS Product Options, Variant — 20.000+ lượt cài đặt · 5 sao",
+          "OP Color Swatch Variant Images — 10.000+ lượt cài đặt · 5 sao"
+        ],
+        "moduleLinks": ["/projects#optis", "/projects#op-swatch"],
+        "stack": ["React", "Remix", "NestJS", "KoaJS", "ExpressJS", "GraphQL", "MySQL", "Redis", "Shopify API"]
+      },
+      {
+        "company": "VTI Solutions",
+        "logoUrl": "https://production-options-bucket.s3.us-east-2.amazonaws.com/po/dev-nghia-lc.myshopify.com-33131/1780217886120-686653139-download1.png",
+        "role": "ReactJS Intern / Frontend Developer",
+        "period": "06/2024 - 10/2024",
+        "context": "Tham gia phát triển 3 hệ thống quản lý nội bộ cho doanh nghiệp sản xuất: Yamaha WMSX (Smart Warehouse Management), Yamaha QMSX (Quality Management) và FujiX QMSX (Quality Management) — phục vụ vận hành nhà máy, kiểm soát chất lượng và các quy trình nghiệp vụ doanh nghiệp.",
+        "responsibilities": [
+          "Module quản lý sản xuất & chất lượng",
+          "Dashboard & quy trình nghiệp vụ doanh nghiệp",
+          "Tích hợp API & xử lý dữ liệu frontend",
+          "Phát triển UI components & hệ thống giao diện",
+          "Phân tích & xử lý bugs"
+        ],
+        "modules": [
+          "Yamaha WMSX — Smart Warehouse Management System",
+          "Yamaha QMSX — Quality Management System",
+          "FujiX QMSX — Quality Management System"
+        ],
+        "stack": ["ReactJS", "Material UI", "Redux", "Formik", "REST API", "Axios"]
+      }
+    ]
+  }
+}

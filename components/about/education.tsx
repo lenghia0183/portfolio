@@ -1,6 +1,7 @@
 "use client";
 
 import { useI18n } from "@/lib/i18n";
+import Image from "next/image";
 import type { ReactNode } from "react";
 
 type Entry = {
@@ -55,17 +56,16 @@ function SchoolLogo({ entry }: { entry: Entry }): ReactNode {
   if (entry.logoUrl) {
     return (
       <span
-        className="border-foreground/15 inline-flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden border bg-white"
+        className="inline-flex h-12 w-12 shrink-0 overflow-hidden"
         aria-hidden="true"
         style={{ borderRadius: 14 }}
       >
-        <img
+        <Image
           src={entry.logoUrl}
           alt=""
-          width={40}
-          height={40}
-          className="h-10 w-10 object-contain p-1"
-          draggable={false}
+          width={48}
+          height={48}
+          className="h-12 w-12 object-cover"
         />
       </span>
     );

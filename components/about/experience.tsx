@@ -2,6 +2,7 @@
 
 import { FadeIn } from "@/components/ui/motion-primitives";
 import { useI18n } from "@/lib/i18n";
+import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
@@ -14,6 +15,7 @@ type ExperienceItem = {
   modules?: readonly string[];
   moduleLinks?: readonly string[];
   stack: readonly string[];
+  logoUrl?: string;
 };
 
 export function Experience(): ReactNode {
@@ -36,13 +38,20 @@ export function Experience(): ReactNode {
           <FadeIn key={entry.company} delay={index * 0.08}>
             <article className="border-foreground/8 bg-background/80 rounded-3xl border p-5 shadow-sm backdrop-blur sm:p-6">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                <div>
-                  <h3 className="text-foreground text-[20px] font-semibold tracking-tight">
-                    {entry.company}
-                  </h3>
-                  <p className="mt-1 text-[15px] text-foreground/65">
-                    {entry.role}
-                  </p>
+                <div className="flex items-center gap-3">
+                  {entry.logoUrl ? (
+                    <span className="inline-flex h-11 w-11 shrink-0 overflow-hidden rounded-xl">
+                      <Image src={entry.logoUrl} alt="" width={44} height={44} className="h-11 w-11 object-cover" />
+                    </span>
+                  ) : null}
+                  <div>
+                    <h3 className="text-foreground text-[20px] font-semibold tracking-tight">
+                      {entry.company}
+                    </h3>
+                    <p className="mt-1 text-[15px] text-foreground/65">
+                      {entry.role}
+                    </p>
+                  </div>
                 </div>
                 <span className="w-fit rounded-full border border-foreground/8 bg-foreground/[0.03] px-3 py-1 font-mono text-[12px] text-foreground/55">
                   {entry.period}

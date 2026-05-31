@@ -10,6 +10,7 @@ import {
   ShoppingBag,
 } from "lucide-react";
 import type { ComponentType, ReactNode } from "react";
+import Image from "next/image";
 import Link from "next/link";
 
 import { FadeIn } from "@/components/ui/motion-primitives";
@@ -25,10 +26,6 @@ type Project = {
   accent: string;
 };
 
-type ProjectGroup = {
-  sectionKey: "shopify" | "enterprise" | "student";
-  projects: Project[];
-};
 
 const PROJECTS: Project[] = [
   {
@@ -63,11 +60,6 @@ const PROJECTS: Project[] = [
   },
 ];
 
-const PROJECT_GROUPS: ProjectGroup[] = [
-  { sectionKey: "shopify", projects: PROJECTS.slice(0, 2) },
-  { sectionKey: "enterprise", projects: PROJECTS.slice(4, 5) },
-  { sectionKey: "student", projects: PROJECTS.slice(2, 4) },
-];
 
 export type ProjectsProps = {
   withHeadline?: boolean;
@@ -184,6 +176,7 @@ function ProjectCard({
     "linkLabel" in content ? content.linkLabel : "Shopify App Store";
   const publicLink = "link" in content ? content.link : null;
   const githubLink = "githubLink" in content ? content.githubLink : null;
+  const logoUrl = "logoUrl" in content ? content.logoUrl : null;
 
   return (
     <FadeIn delay={Math.min(index * 0.08, 0.24)}>
@@ -202,8 +195,12 @@ function ProjectCard({
           />
           <header className="relative flex items-center justify-between">
             <div className="flex items-center gap-2.5">
-              <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/12 bg-white/8">
-                <Icon className="h-4 w-4" aria-hidden="true" />
+              <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-white/12 bg-white/8">
+                {logoUrl ? (
+                  <Image src={logoUrl} alt="" width={36} height={36} className="h-9 w-9 object-cover" />
+                ) : (
+                  <Icon className="h-4 w-4" aria-hidden="true" />
+                )}
               </span>
               <span className="text-sm font-medium tracking-tight">
                 {project.iconLabel}

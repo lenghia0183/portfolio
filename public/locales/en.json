@@ -1,0 +1,278 @@
+{
+  "skipToContent": "Skip to main content",
+  "nav": {
+    "label": "Primary",
+    "home": "Home",
+    "projects": "Projects",
+    "about": "About",
+    "contact": "Contact",
+    "language": "Change language",
+    "english": "English",
+    "vietnamese": "Vietnamese",
+    "themeLight": "Switch to light theme",
+    "themeDark": "Switch to dark theme",
+    "themeToggle": "Toggle theme"
+  },
+  "hero": {
+    "intro": "Le Cong Nghia",
+    "titleLine1": "Full-stack Developer",
+    "titleLine2": "Shopify App Developer",
+    "description": "Full-stack Engineer specializing in Shopify platform development — building end-to-end from backend APIs and admin systems to storefront runtime scripts running directly on merchant themes.",
+    "portraitAlt": "Le Cong Nghia developer portrait",
+    "viewWork": "View Projects"
+  },
+  "contact": {
+    "button": "Contact",
+    "copied": "Email copied",
+    "copy": "Copy",
+    "showEmail": "Show email",
+    "title": "Let's work together",
+    "description": "Available for Shopify application development, full-stack web systems, and production-focused engineering work.",
+    "seeProjects": "View products",
+    "downloadCv": "Download CV",
+    "hireMe": "Hire Me",
+    "workTogether": "Let's Work Together",
+    "builtWith": "2026 © Built with Next.js",
+    "byline": "Le Cong Nghia",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "email": "Email",
+    "phone": "Phone",
+    "facebook": "Facebook"
+  },
+  "projectsPage": {
+    "title": "Products and student projects",
+    "description": "Production Shopify apps, internal enterprise work, and selected personal projects from my student years."
+  },
+  "projects": {
+    "title": "Products and projects",
+    "description": "Products I have built: from production Shopify apps serving tens of thousands of merchants, enterprise-grade internal management systems, to personal side projects.",
+    "viewAll": "View all projects",
+    "items": [
+      {
+        "title": "OPTIS Product Options, Variant",
+        "logoUrl": "https://production-options-bucket.s3.us-east-2.amazonaws.com/po/dev-nghia-lc.myshopify.com-33131/1780217903084-249192545-download2.png",
+        "description": "Production Shopify application for complex product personalization, helping merchants configure option sets, conditional purchasing flows, and price-adjusted add-ons directly on the storefront.",
+        "meta": "Full-stack Engineer / 20,000+ installs / 5-star Shopify App Store",
+        "imageAlt": "OPTIS Shopify app product interface",
+        "category": "Shopify App",
+        "link": "https://apps.shopify.com/product-options-by-bss",
+        "linkLabel": "Shopify App Store",
+        "scale": "20,000+ installs",
+        "rating": "5-star Shopify App Store",
+        "features": [
+          "Custom product options (dropdown, checkbox, swatch, file upload, text...)",
+          "Conditional logic — show/hide options based on customer selections",
+          "Add-on pricing per option",
+          "Live preview — customers see changes in real time on the product page",
+          "And more advanced customization features"
+        ],
+        "responsibilities": [
+          "Full-stack ownership — admin UI, backend APIs & storefront runtime",
+          "Involved in the full product development process — from requirements analysis and technical design to feature development and production deployment",
+          "Merchant support — resolving technical issues, supporting customers & contributing to growth in installs, reviews, and maintaining a 5★ rating"
+        ],
+        "stack": ["React", "Remix", "NestJS", "KoaJS", "GraphQL", "MySQL", "Redis", "Shopify API"]
+      },
+      {
+        "title": "OP Color Swatch Variant Images",
+        "logoUrl": "https://production-options-bucket.s3.us-east-2.amazonaws.com/po/dev-nghia-lc.myshopify.com-33131/1780217912413-362617977-download3.png",
+        "description": "Built for Shopify variant experience app that turns complex catalogs into a clean visual buying flow with color swatches, variant-specific image galleries, combined listings, and SEO-friendly product navigation.",
+        "meta": "Full-stack Engineer / 10,000+ installs / 5-star Shopify App Store",
+        "imageAlt": "OP Color Swatch Shopify app variant interface",
+        "category": "Shopify App",
+        "link": "https://apps.shopify.com/optis-color-swatch-variants",
+        "linkLabel": "Shopify App Store",
+        "scale": "10,000+ installs",
+        "rating": "5-star Shopify App Store",
+        "features": [
+          "Visual swatches replacing Shopify's default variant selector",
+          "Variant-specific image galleries — each variant shows its own images",
+          "Combined listings — merge separate products into one unified storefront listing",
+          "Collection page swatches — browse variants without entering the product page",
+          "And more display enhancement features"
+        ],
+        "responsibilities": [
+          "Full-stack ownership — admin UI, backend APIs & storefront runtime",
+          "Involved in the full product development process — from requirements analysis and technical design to feature development and production deployment",
+          "Merchant support — resolving technical issues, supporting customers & contributing to growth in installs, reviews, and maintaining a 5★ rating"
+        ],
+        "stack": ["React", "Remix", "NestJS", "KoaJS", "GraphQL", "MySQL", "Redis", "Shopify API"]
+      },
+      {
+        "title": "HAUIFOOD",
+        "logoUrl": "https://production-options-bucket.s3.us-east-2.amazonaws.com/po/dev-nghia-lc.myshopify.com-33131/1780217954655-261312967-logo-square.23528da2d6c68d8beb4d.png",
+        "description": "Personal project during university — an e-commerce app for online food ordering, focused on user experience, order flow, and real-time interaction.",
+        "meta": "Student project / Frontend Developer / 03/2024 - 06/2024",
+        "imageAlt": "HAUIFOOD student e-commerce project interface",
+        "category": "Student Project",
+        "link": "https://hauifood.com",
+        "linkLabel": "Live demo",
+        "githubLink": "https://github.com/haui-food",
+        "scale": "Personal student project",
+        "rating": "E-commerce · Frontend",
+        "features": [
+          "E-commerce experience",
+          "Order flow & customer interaction",
+          "User management & authentication",
+          "Realtime data sync",
+          "Multi-language support"
+        ],
+        "responsibilities": [
+          "ReactJS frontend development",
+          "API integration & data handling",
+          "Application state management",
+          "Realtime interaction implementation",
+          "Bug analysis & fixes"
+        ],
+        "stack": ["ReactJS", "JavaScript", "Material UI", "Bootstrap", "Redux Toolkit", "Axios", "SCSS", "Socket.IO Client", "i18n-react"]
+      },
+      {
+        "title": "Mid-Autumn",
+        "logoUrl": "https://production-options-bucket.s3.us-east-2.amazonaws.com/po/dev-nghia-lc.myshopify.com-33131/1780217933573-950668681-logo.png",
+        "description": "Personal project during university — an online mooncake selling app, focused on shopping experience, user management, and sales flow on web platform.",
+        "meta": "Student project / Full-stack Developer / 06/2024 - 10/2024",
+        "imageAlt": "Mid-Autumn student full-stack project interface",
+        "category": "Student Project",
+        "link": "https://mid-autumn-beta.vercel.app",
+        "linkLabel": "Live demo",
+        "githubLink": "https://github.com/lenghia0183/Mid-Autumn",
+        "scale": "Personal student project",
+        "rating": "Full-stack · Web App",
+        "features": [
+          "Online shopping experience",
+          "Account management & authentication",
+          "Media & content management",
+          "Email notification system",
+          "Multi-language support"
+        ],
+        "responsibilities": [
+          "Full-stack",
+          "ReactJS frontend development",
+          "Backend API development",
+          "Authentication & user management",
+          "Data integration & business logic",
+          "Deployment & optimization"
+        ],
+        "stack": ["ReactJS", "Tailwind CSS", "Axios", "SWR", "Formik", "Firebase", "ExpressJS", "MongoDB", "JWT", "Cloudinary", "NodeMailer"]
+      },
+      {
+        "title": "VTI Manufacturing Management Systems",
+        "logoUrl": "https://production-options-bucket.s3.us-east-2.amazonaws.com/po/dev-nghia-lc.myshopify.com-33131/1780217886120-686653139-download1.png",
+        "description": "Internal management systems for manufacturing enterprises — supporting factory operations, production workflows, warehouse management, quality control, and business processes. Internal tools with no public links available.",
+        "meta": "VTI Solutions / ReactJS Intern / Internal enterprise tools",
+        "imageAlt": "VTI internal manufacturing systems project",
+        "category": "Internal Enterprise Tools",
+        "linkLabel": "Private internal project",
+        "scale": "Manufacturing operations",
+        "rating": "No public link",
+        "features": [
+          "Manufacturing operations management",
+          "Smart factory workflows",
+          "Quality management",
+          "Enterprise business modules",
+          "Internal admin systems"
+        ],
+        "responsibilities": [
+          "ReactJS frontend development",
+          "Business feature implementation",
+          "API integration",
+          "Bug analysis & fixes"
+        ],
+        "stack": ["ReactJS", "Material UI", "Redux", "Formik", "REST API", "Axios"]
+      }
+    ]
+  },
+  "about": {
+    "greeting": "Hello, I'm",
+    "name": "Le Cong Nghia",
+    "paragraphs": [
+      "Born in 2003, I am a Full-stack Developer specializing in building Shopify applications for merchants worldwide. I have end-to-end experience — from backend APIs and admin systems to storefront runtime scripts running directly on merchant themes.",
+      "I currently work at BSS Commerce, focusing on Shopify platform development and production web systems built on the React ecosystem — serving over 30,000 merchants on the Shopify App Store.",
+      "I write code that is clean, maintainable, and built to scale — and I enjoy exploring new technologies to apply them to real-world production problems."
+    ],
+    "experience": "Experience",
+    "education": "Education",
+    "skills": "Technical interests",
+    "stack": "Tech Stack",
+    "showLess": "Show less",
+    "showMore": "Show {count} more",
+    "resetStack": "Reset stack",
+    "skillsList": [
+      "Frontend Architecture",
+      "Clean Code",
+      "Developer Experience",
+      "Performance Engineering"
+    ],
+    "techCategories": [
+      ["Languages", "TypeScript", "JavaScript"],
+      ["Frontend", "ReactJS", "Next.js", "Remix", "React Query", "React Hook Form", "Redux"],
+      ["UI & Styling", "TailwindCSS", "Material UI", "Formik"],
+      ["Backend", "NestJS", "Node.js", "ExpressJS", "KoaJS", "GraphQL"],
+      ["Database", "MySQL", "MongoDB", "Redis"],
+      ["Shopify Platform", "Shopify API", "Shopify CLI", "Shopify Storefront"],
+      ["DevOps", "Docker", "Cloudflare", "CI/CD"],
+      ["Cloud", "AWS S3", "Cloudflare"],
+      ["AI Tools", "Claude Code", "Cursor", "Codex"],
+      ["Domain", "Shopify", "Ecommerce", "CMS Systems"]
+    ],
+    "educationItems": [
+      {
+        "school": "Hanoi University of Industry",
+        "degree": "Master's — Information Systems",
+        "period": "2025 - Present",
+        "note": "In progress",
+        "logoUrl": "https://production-options-bucket.s3.us-east-2.amazonaws.com/po/dev-nghia-lc.myshopify.com-33131/1780217978812-56616908-haui.png"
+      },
+      {
+        "school": "Hanoi University of Industry",
+        "degree": "Software Engineering",
+        "period": "2021 - 2025",
+        "note": "GPA 3.48 / 4.0",
+        "logoUrl": "https://production-options-bucket.s3.us-east-2.amazonaws.com/po/dev-nghia-lc.myshopify.com-33131/1780217978812-56616908-haui.png"
+      }
+    ],
+    "experienceItems": [
+      {
+        "company": "BSS Commerce",
+        "logoUrl": "https://production-options-bucket.s3.us-east-2.amazonaws.com/po/dev-nghia-lc.myshopify.com-33131/1780217922968-943345868-download.png",
+        "role": "Full-stack Developer / Shopify App Developer",
+        "period": "2025 - Present",
+        "context": "Building Shopify applications for product customization, variant experience and ecommerce solutions serving tens of thousands of merchants on the Shopify App Store.",
+        "responsibilities": [
+          "Backend services & Shopify APIs development",
+          "Admin systems & merchant experience development",
+          "Storefront logic running on merchant themes",
+          "Shopify platform services integration",
+          "App operations support & technical issue handling"
+        ],
+        "modules": [
+          "OPTIS Product Options, Variant — 20,000+ installs · 5-star",
+          "OP Color Swatch Variant Images — 10,000+ installs · 5-star"
+        ],
+        "moduleLinks": ["/projects#optis", "/projects#op-swatch"],
+        "stack": ["React", "Remix", "NestJS", "KoaJS", "ExpressJS", "GraphQL", "MySQL", "Redis", "Shopify API"]
+      },
+      {
+        "company": "VTI Solutions",
+        "logoUrl": "https://production-options-bucket.s3.us-east-2.amazonaws.com/po/dev-nghia-lc.myshopify.com-33131/1780217886120-686653139-download1.png",
+        "role": "ReactJS Intern / Frontend Developer",
+        "period": "06/2024 - 10/2024",
+        "context": "Contributed to 3 internal management systems for manufacturing enterprises: Yamaha WMSX (Smart Warehouse Management), Yamaha QMSX (Quality Management) and FujiX QMSX (Quality Management) — supporting factory operations, quality control and enterprise business workflows.",
+        "responsibilities": [
+          "Production & quality management modules",
+          "Dashboard & enterprise business workflows",
+          "API integration & frontend data handling",
+          "UI components & interface system development",
+          "Bug analysis & fixes"
+        ],
+        "modules": [
+          "Yamaha WMSX — Smart Warehouse Management System",
+          "Yamaha QMSX — Quality Management System",
+          "FujiX QMSX — Quality Management System"
+        ],
+        "stack": ["ReactJS", "Material UI", "Redux", "Formik", "REST API", "Axios"]
+      }
+    ]
+  }
+}
