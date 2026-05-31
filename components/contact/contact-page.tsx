@@ -131,9 +131,20 @@ export function ContactPageContent(): ReactNode {
 
         <ScaleUnblur delay={0.08}>
           <div className="border-foreground/8 bg-background/80 relative overflow-hidden rounded-4xl border p-1.5 shadow-sm backdrop-blur">
-            <div className="relative overflow-hidden rounded-[1.6rem] border border-foreground/8 bg-[#080808] p-5 text-white">
+            <div className="relative overflow-hidden rounded-[1.6rem] border border-foreground/8 bg-foreground/[0.03] dark:bg-[#080808] p-5">
+              {/* grid lines light */}
               <div
-                className="pointer-events-none absolute inset-0 opacity-35"
+                className="pointer-events-none absolute inset-0 opacity-[0.45] dark:hidden"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(rgba(100,116,139,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(100,116,139,0.2) 1px, transparent 1px)",
+                  backgroundSize: "28px 28px",
+                }}
+                aria-hidden="true"
+              />
+              {/* grid lines dark */}
+              <div
+                className="pointer-events-none absolute inset-0 hidden opacity-35 dark:block"
                 style={{
                   backgroundImage:
                     "linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px)",
@@ -141,16 +152,16 @@ export function ContactPageContent(): ReactNode {
                 }}
                 aria-hidden="true"
               />
-              <div className="relative flex items-center justify-between border-b border-white/10 pb-4">
+              <div className="relative flex items-center justify-between border-b border-foreground/8 pb-4">
                 <div>
-                  <p className="font-mono text-[12px] uppercase tracking-[0.18em] text-white/38">
+                  <p className="font-mono text-[12px] uppercase tracking-[0.18em] text-foreground/40">
                     Direct line
                   </p>
-                  <h2 className="mt-2 text-[24px] font-medium tracking-tight">
+                  <h2 className="mt-2 text-[24px] font-medium tracking-tight text-foreground">
                     Start with context
                   </h2>
                 </div>
-                <MessageSquare className="h-5 w-5 text-white/45" />
+                <MessageSquare className="h-5 w-5 text-foreground/40" />
               </div>
 
               <div className="relative mt-5 grid gap-3">
@@ -233,23 +244,23 @@ function ChannelLink({ channel }: { channel: Channel }): ReactNode {
       href={channel.href}
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
-      className="group flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/[0.035] p-3 transition-colors hover:bg-white/[0.065]"
+      className="group flex items-center justify-between gap-4 rounded-2xl border border-foreground/8 bg-background/60 p-3 transition-colors hover:bg-foreground/4 dark:bg-white/[0.035] dark:hover:bg-white/6.5"
     >
       <span className="flex min-w-0 items-center gap-3">
-        <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-black/30">
-          <Icon className="h-4 w-4 text-white/72" aria-hidden="true" />
+        <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-foreground/10 bg-foreground/4 dark:bg-black/30">
+          <Icon className="h-4 w-4 text-foreground/60 dark:text-white/72" aria-hidden="true" />
         </span>
         <span className="min-w-0">
-          <span className="block text-[13px] text-white/42">
+          <span className="block text-[13px] text-foreground/45">
             {channel.label}
           </span>
-          <span className="block truncate text-[14px] font-medium text-white/82">
+          <span className="block truncate text-[14px] font-medium text-foreground/85">
             {channel.value}
           </span>
         </span>
       </span>
       <ArrowUpRight
-        className="h-4 w-4 shrink-0 text-white/35 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white/70"
+        className="h-4 w-4 shrink-0 text-foreground/35 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground/70"
         aria-hidden="true"
       />
     </Link>

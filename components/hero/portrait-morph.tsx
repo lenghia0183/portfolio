@@ -35,13 +35,17 @@ uniform vec2 uDirection;
 varying vec2 vUv;
 
 vec2 coverUv(vec2 uv) {
-  vec2 ratio = vec2(
-    min((uResolution.x / uResolution.y) / (uImageSize.x / uImageSize.y), 1.0),
-    min((uResolution.y / uResolution.x) / (uImageSize.y / uImageSize.x), 1.0)
-  );
+  float containerAspect = uResolution.x / uResolution.y;
+  float imageAspect = uImageSize.x / uImageSize.y;
+  vec2 scale;
+  if (containerAspect > imageAspect) {
+    scale = vec2(1.0, imageAspect / containerAspect);
+  } else {
+    scale = vec2(containerAspect / imageAspect, 1.0);
+  }
   return vec2(
-    uv.x * ratio.x + (1.0 - ratio.x) * 0.5,
-    uv.y * ratio.y + (1.0 - ratio.y) * 0.5
+    uv.x * scale.x + (1.0 - scale.x) * 0.5,
+    uv.y * scale.y + (1.0 - scale.y) * 0.5
   );
 }
 
@@ -139,26 +143,24 @@ export function PortraitMorph({
     });
     const gl = renderer.gl;
     const canvas = gl.canvas as HTMLCanvasElement;
-    canvas.style.width = "100%";
-    canvas.style.height = "100%";
     canvas.style.display = "block";
     container.appendChild(canvas);
 
     const scene = new Transform();
-
     const texA = new Texture(gl, { generateMipmaps: false });
     const texB = new Texture(gl, { generateMipmaps: false });
-
     const imageSize: [number, number] = [1, 1];
 
-    const loadImage = (src: string, target: Texture): Promise<void> =>
+    const loadImage = (src: string, target: Texture, captureSize = false): Promise<void> =>
       new Promise((resolve, reject) => {
         const img = new Image();
         img.crossOrigin = "anonymous";
         img.onload = () => {
           target.image = img;
-          imageSize[0] = img.naturalWidth;
-          imageSize[1] = img.naturalHeight;
+          if (captureSize) {
+            imageSize[0] = img.naturalWidth;
+            imageSize[1] = img.naturalHeight;
+          }
           resolve();
         };
         img.onerror = reject;
@@ -188,12 +190,11 @@ export function PortraitMorph({
       const w = container.clientWidth;
       const h = container.clientHeight;
       renderer.setSize(w, h);
-      canvas.style.width = "100%";
-      canvas.style.height = "100%";
-      program.uniforms.uResolution.value = [
-        w * renderer.dpr,
-        h * renderer.dpr,
-      ];
+      canvas.style.position = "absolute";
+      canvas.style.inset = "0";
+      canvas.style.width = `${w}px`;
+      canvas.style.height = `${h}px`;
+      program.uniforms.uResolution.value = [w * renderer.dpr, h * renderer.dpr];
     };
     const ro = new ResizeObserver(resize);
     ro.observe(container);
@@ -226,15 +227,13 @@ export function PortraitMorph({
       raf = requestAnimationFrame(tick);
     };
 
-    Promise.all([loadImage(srcA, texA), loadImage(srcB, texB)])
+    Promise.all([loadImage(srcA, texA, true), loadImage(srcB, texB)])
       .then(() => {
         setReady(true);
         last = performance.now();
         tick();
       })
-      .catch(() => {
-        setReady(false);
-      });
+      .catch(() => setReady(false));
 
     const computeEdgeDirection = (x: number, y: number): [number, number] => {
       const dxLeft = x;
@@ -262,10 +261,7 @@ export function PortraitMorph({
       const x = (e.clientX - rect.left) / rect.width;
       const y = 1 - (e.clientY - rect.top) / rect.height;
       originRef.current = [x, y];
-      directionRef.current = computeEdgeDirection(x, y).map((v) => -v) as [
-        number,
-        number,
-      ];
+      directionRef.current = computeEdgeDirection(x, y).map((v) => -v) as [number, number];
       hoverRef.current = false;
     };
     const onPointerMove = (e: PointerEvent) => {
@@ -277,9 +273,7 @@ export function PortraitMorph({
         const vx = x - last.x;
         const vy = y - last.y;
         const mag = Math.hypot(vx, vy);
-        if (mag > 0.01) {
-          directionRef.current = [vx / mag, vy / mag];
-        }
+        if (mag > 0.01) directionRef.current = [vx / mag, vy / mag];
       }
       lastPointerRef.current = { x, y, t: performance.now() };
     };
@@ -307,7 +301,7 @@ export function PortraitMorph({
       role="img"
       aria-label={alt}
       className={className}
-      style={{ position: "relative", width: "100%", height: "100%", filter: "grayscale(100%)" }}
+      style={{ position: "relative", width: "100%", height: "100%" }}
     >
       {!ready ? (
         <img

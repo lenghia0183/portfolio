@@ -32,31 +32,31 @@ const PROJECTS: Project[] = [
     id: "optis",
     icon: Boxes,
     iconLabel: "OPTIS",
-    accent: "from-white/16 to-white/[0.03]",
+    accent: "",
   },
   {
     id: "op-swatch",
     icon: Palette,
     iconLabel: "OP Swatch",
-    accent: "from-white/12 to-white/[0.02]",
+    accent: "",
   },
   {
     id: "hauifood",
     icon: ShoppingBag,
     iconLabel: "HAUIFOOD",
-    accent: "from-white/10 to-white/[0.02]",
+    accent: "",
   },
   {
     id: "mid-autumn",
     icon: Code2,
     iconLabel: "Mid-Autumn",
-    accent: "from-white/10 to-white/[0.02]",
+    accent: "",
   },
   {
     id: "vti-internal-tools",
     icon: Factory,
     iconLabel: "VTI",
-    accent: "from-white/10 to-white/[0.02]",
+    accent: "",
   },
 ];
 
@@ -67,8 +67,8 @@ export type ProjectsProps = {
 };
 
 const SECTION_LABELS = {
-  bss: { en: "@ BSS Commerce", vi: "@ BSS Commerce" },
-  vti: { en: "@ VTI Solutions", vi: "@ VTI Solutions" },
+  bss: { en: "BSS Commerce", vi: "BSS Commerce" },
+  vti: { en: "VTI Solutions", vi: "VTI Solutions" },
   student: { en: "Student Projects", vi: "Dự án sinh viên" },
 } as const;
 
@@ -82,9 +82,9 @@ export function Projects({
   const groups = viewMoreVisible
     ? null
     : [
-        { label: SECTION_LABELS.bss[language], projects: PROJECTS.slice(0, 2), startIndex: 0 },
-        { label: SECTION_LABELS.vti[language], projects: PROJECTS.slice(4, 5), startIndex: 4 },
-        { label: SECTION_LABELS.student[language], projects: PROJECTS.slice(2, 4), startIndex: 2 },
+        { label: SECTION_LABELS.bss[language], projects: PROJECTS.slice(0, 2), startIndex: 0, logoUrl: "https://production-options-bucket.s3.us-east-2.amazonaws.com/po/dev-nghia-lc.myshopify.com-33131/1780217922968-943345868-download.png" },
+        { label: SECTION_LABELS.vti[language], projects: PROJECTS.slice(4, 5), startIndex: 4, logoUrl: "https://production-options-bucket.s3.us-east-2.amazonaws.com/po/dev-nghia-lc.myshopify.com-33131/1780217886120-686653139-download1.png" },
+        { label: SECTION_LABELS.student[language], projects: PROJECTS.slice(2, 4), startIndex: 2, logoUrl: null },
       ];
 
   return (
@@ -106,9 +106,16 @@ export function Projects({
             {groups.map((group) => (
               <div key={group.label}>
                 <FadeIn>
-                  <h3 className="mb-6 font-mono text-[15px] font-semibold uppercase tracking-[0.18em] text-foreground/60">
-                    {group.label}
-                  </h3>
+                  <div className="mb-6 flex items-center gap-3">
+                    {group.logoUrl ? (
+                      <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-foreground/10 bg-white">
+                        <Image src={group.logoUrl} alt="" width={32} height={32} className="h-8 w-8 object-contain p-0.5" />
+                      </span>
+                    ) : null}
+                    <h3 className="font-mono text-[15px] font-semibold uppercase tracking-[0.18em] text-foreground/60">
+                      {group.label}
+                    </h3>
+                  </div>
                 </FadeIn>
                 <div className="grid gap-6 lg:grid-cols-2">
                   {group.projects.map((project, i) => (
@@ -182,10 +189,23 @@ function ProjectCard({
     <FadeIn delay={Math.min(index * 0.08, 0.24)}>
       <article id={project.id} className="project-card border-foreground/8 bg-background flex h-full flex-col gap-5 rounded-3xl border p-4 sm:p-5">
         <div
-          className={`relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br ${project.accent} p-4 text-white`}
+          className="relative overflow-hidden rounded-2xl p-4
+            border border-slate-200 bg-linear-to-br from-slate-100 to-slate-50
+            dark:border-white/10 dark:bg-none dark:bg-[#111111]"
         >
+          {/* grid lines – light */}
           <div
-            className="pointer-events-none absolute inset-0 opacity-35"
+            className="pointer-events-none absolute inset-0 opacity-[0.55] dark:hidden"
+            style={{
+              backgroundImage:
+                "linear-gradient(rgba(100,116,139,0.18) 1px, transparent 1px), linear-gradient(90deg, rgba(100,116,139,0.18) 1px, transparent 1px)",
+              backgroundSize: "24px 24px",
+            }}
+            aria-hidden="true"
+          />
+          {/* grid lines – dark */}
+          <div
+            className="pointer-events-none absolute inset-0 hidden dark:block opacity-35"
             style={{
               backgroundImage:
                 "linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)",
@@ -193,20 +213,28 @@ function ProjectCard({
             }}
             aria-hidden="true"
           />
+          {/* soft radial glow – light only */}
+          <div
+            className="pointer-events-none absolute -top-10 -right-10 h-40 w-40 rounded-full opacity-30 dark:hidden"
+            style={{ background: "radial-gradient(circle, #94a3b8 0%, transparent 70%)" }}
+            aria-hidden="true"
+          />
           <header className="relative flex items-center justify-between">
             <div className="flex items-center gap-2.5">
-              <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-white/12 bg-white/8">
+              <span className={`inline-flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-xl
+                border border-slate-300 dark:border-white/12
+                ${logoUrl ? "bg-white" : "bg-white dark:bg-white/8"}`}>
                 {logoUrl ? (
-                  <Image src={logoUrl} alt="" width={36} height={36} className="h-9 w-9 object-cover" />
+                  <Image src={logoUrl} alt="" width={36} height={36} className="h-9 w-9 object-contain p-0.5" />
                 ) : (
-                  <Icon className="h-4 w-4" aria-hidden="true" />
+                  <Icon className="h-4 w-4 text-slate-600 dark:text-white" aria-hidden="true" />
                 )}
               </span>
-              <span className="text-sm font-medium tracking-tight">
+              <span className="text-sm font-semibold tracking-tight text-slate-700 dark:text-white">
                 {project.iconLabel}
               </span>
             </div>
-            <span className="rounded-full border border-white/12 px-3 py-1 font-mono text-[11px] text-white/62">
+            <span className="rounded-full border border-slate-300 bg-white/70 px-3 py-1 font-mono text-[11px] text-slate-500 dark:border-white/12 dark:bg-transparent dark:text-white/62">
               {category}
             </span>
           </header>
@@ -215,9 +243,9 @@ function ProjectCard({
             {[content.scale, content.rating].map((metric) => (
               <div
                 key={metric}
-                className="rounded-2xl border border-white/10 bg-black/30 p-3"
+                className="rounded-2xl border border-slate-200 bg-white/60 p-3 backdrop-blur-sm dark:border-white/10 dark:bg-black/30"
               >
-                <p className="font-mono text-[12px] leading-5 text-white/75">
+                <p className="font-mono text-[12px] leading-5 text-slate-600 dark:text-white/75">
                   {metric}
                 </p>
               </div>
@@ -312,7 +340,7 @@ function MetaGroup({
         {items.map((item) => (
           <span
             key={item}
-            className="rounded-full border border-foreground/8 bg-foreground/[0.03] px-3 py-1.5 text-[13px] text-foreground/72"
+            className="rounded-full border border-foreground/8 bg-foreground/3 px-3 py-1.5 text-[13px] text-foreground/72"
           >
             {item}
           </span>

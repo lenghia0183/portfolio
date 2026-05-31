@@ -42,8 +42,26 @@ export function ContactCard(): ReactNode {
                 <ContactCardCtas />
               </div>
 
-              <div className="border-foreground/8 bg-background flex flex-col items-center justify-center gap-6 rounded-[1.1rem] border p-6 sm:p-8">
-                <div className="flex items-center gap-3 opacity-75">
+              <div className="relative flex flex-col items-center justify-between gap-6 overflow-hidden rounded-[1.1rem] border border-foreground/8 p-6 sm:p-8">
+                {/* shader background */}
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 opacity-55 dark:opacity-30"
+                  style={{
+                    WebkitMaskImage: CARD_FADE_MASK,
+                    maskImage: CARD_FADE_MASK,
+                  }}
+                >
+                  <ShaderFlow scale={3} brightness={3} />
+                </div>
+
+                {/* top label */}
+                <p className="relative font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground/50">
+                  {t.contact.byline}
+                </p>
+
+                {/* social icons */}
+                <div className="relative flex flex-wrap items-center justify-center gap-2.5">
                   <SocialIcon
                     href="mailto:lenghia0108@gmail.com"
                     label={t.contact.email}
@@ -70,14 +88,11 @@ export function ContactCard(): ReactNode {
                     lucideIcon={Facebook}
                   />
                 </div>
-                <div className="flex flex-col items-center gap-1 text-center">
-                  <p className="text-foreground/70 text-[13px] tracking-tight">
-                    {t.contact.builtWith}
-                  </p>
-                  <p className="text-foreground/45 text-[12px] tracking-tight">
-                    {t.contact.byline}
-                  </p>
-                </div>
+
+                {/* footer */}
+                <p className="relative text-foreground/50 text-[12px] tracking-tight">
+                  {t.contact.builtWith}
+                </p>
               </div>
             </div>
           </div>

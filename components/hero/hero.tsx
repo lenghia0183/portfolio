@@ -7,8 +7,8 @@ import { useI18n } from "@/lib/i18n";
 import { HeroCtas } from "./hero-ctas";
 import { PortraitMorph } from "./portrait-morph";
 
-const PORTRAIT_SRC = "/josh.webp";
-const PORTRAIT_HOVER_SRC = "/josh_wave.webp";
+const PORTRAIT_SRC = "/images/photo1.jpg";
+const PORTRAIT_HOVER_SRC = "/images/photo2.jpg";
 
 export function Hero(): ReactNode {
   const { t } = useI18n();
