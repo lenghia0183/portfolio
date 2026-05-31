@@ -179,6 +179,7 @@ function ProjectCard({
   index: number;
   content: ProjectContent;
 }): ReactNode {
+  const { t } = useI18n();
   const Icon = project.icon;
   const category = "category" in content ? content.category : "Shopify App";
   const linkLabel =
@@ -266,11 +267,8 @@ function ProjectCard({
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
-            <MetaGroup title="Tính năng" items={content.features} />
-            <MetaGroup
-              title="Phạm vi kỹ thuật"
-              items={content.responsibilities}
-            />
+            <MetaGroup title={t.projects.featuresLabel} items={content.features} />
+            <MetaGroup title={t.projects.contributionsLabel} items={content.responsibilities} />
           </div>
 
           <div className="mt-auto flex flex-col gap-4 border-t border-foreground/8 pt-4">

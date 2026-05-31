@@ -67,6 +67,8 @@
     "title": "Products & projects",
     "description": "Products I've built: from production Shopify apps serving tens of thousands of merchants, enterprise-grade internal management systems, to personal side projects.",
     "viewAll": "View all projects",
+    "featuresLabel": "Features",
+    "contributionsLabel": "Contributions",
     "items": [
       {
         "title": "OPTIS Product Options, Variant",

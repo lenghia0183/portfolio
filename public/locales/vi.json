@@ -67,6 +67,8 @@
     "title": "Sản phẩm và dự án",
     "description": "Các sản phẩm tôi đã xây dựng: từ Shopify apps production phục vụ hàng chục nghìn merchant, hệ thống quản lý nội bộ cấp doanh nghiệp, đến các side projects cá nhân.",
     "viewAll": "Xem tất cả dự án",
+    "featuresLabel": "Tính năng",
+    "contributionsLabel": "Đóng góp",
     "items": [
       {
         "title": "OPTIS Product Options, Variant",
