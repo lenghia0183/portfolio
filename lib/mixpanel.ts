@@ -56,6 +56,12 @@ function getUtmParams(): Record<string, string> {
   return utm;
 }
 
+export function trackContactClick(href: string, label: string, location: string): void {
+  if (href.startsWith("mailto:")) track(EVENTS.BAM_LINK_EMAIL, { vi_tri: location });
+  else if (href.startsWith("tel:")) track(EVENTS.BAM_SO_DIEN_THOAI, { vi_tri: location });
+  else track(EVENTS.BAM_MANG_XA_HOI, { mang: label, vi_tri: location });
+}
+
 export function track(event: string, props?: Record<string, unknown>): void {
   if (typeof window === "undefined") return;
   initMixpanel();

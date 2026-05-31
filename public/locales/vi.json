@@ -38,7 +38,22 @@
     "linkedin": "LinkedIn",
     "email": "Email",
     "phone": "Số điện thoại",
-    "facebook": "Facebook"
+    "facebook": "Facebook",
+    "availableTag": "Sẵn sàng nhận dự án production",
+    "servicesTitle": "Dịch vụ",
+    "servicesSubtitle": "Shopify và full-stack engineering hướng production.",
+    "projectBriefTitle": "Thông tin dự án",
+    "workItems": [
+      "Phát triển Shopify app và tùy chỉnh storefront",
+      "Hệ thống product options, variants và merchant workflows",
+      "Phát triển frontend với React, Remix và Next.js",
+      "Backend services với NestJS, Node.js APIs và CMS tools"
+    ],
+    "projectBriefItems": [
+      ["01", "Bạn muốn xây dựng gì"],
+      ["02", "Giai đoạn hiện tại của sản phẩm"],
+      ["03", "Timeline, độ ưu tiên và ngân sách"]
+    ]
   },
   "projectsPage": {
     "title": "Sản phẩm và dự án",
@@ -220,7 +235,7 @@
       {
         "school": "Đại học Công nghiệp Hà Nội",
         "degree": "Thạc sĩ — Hệ thống Thông tin",
-        "period": "2025 - Hiện tại",
+        "period": "2026 - Hiện tại",
         "note": "Đang theo học",
         "logoUrl": "https://production-options-bucket.s3.us-east-2.amazonaws.com/po/dev-nghia-lc.myshopify.com-33131/1780217978812-56616908-haui.png"
       },

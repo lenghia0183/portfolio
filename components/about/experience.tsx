@@ -29,7 +29,7 @@ export function Experience(): ReactNode {
           {t.about.experience}
         </h2>
         <span className="hidden font-mono text-xs text-foreground/35 sm:inline">
-          2024 - Present
+          2025 - Present
         </span>
       </div>
 
@@ -40,8 +40,8 @@ export function Experience(): ReactNode {
               <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                 <div className="flex items-center gap-3">
                   {entry.logoUrl ? (
-                    <span className="inline-flex h-11 w-11 shrink-0 overflow-hidden rounded-xl">
-                      <Image src={entry.logoUrl} alt="" width={44} height={44} className="h-11 w-11 object-cover" />
+                    <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-foreground/10 bg-white">
+                      <Image src={entry.logoUrl} alt="" width={36} height={36} className="h-9 w-9 object-contain p-1" />
                     </span>
                   ) : null}
                   <div>

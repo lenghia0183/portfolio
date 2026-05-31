@@ -17,8 +17,8 @@
     "intro": "Le Cong Nghia",
     "titleLine1": "Full-stack Developer",
     "titleLine2": "Shopify App Developer",
-    "description": "Full-stack Engineer specializing in Shopify platform development — building end-to-end from backend APIs and admin systems to storefront runtime scripts running directly on merchant themes.",
-    "portraitAlt": "Le Cong Nghia developer portrait",
+    "description": "Full-stack Engineer specializing in the Shopify ecosystem — capable of building end-to-end across backend services, admin systems, and storefront runtime scripts running directly on merchant themes.",
+    "portraitAlt": "Portrait of developer Le Cong Nghia",
     "viewWork": "View Projects"
   },
   "contact": {
@@ -26,9 +26,9 @@
     "copied": "Email copied",
     "copy": "Copy",
     "showEmail": "Show email",
-    "title": "Let's work together",
-    "description": "Available for Shopify application development, full-stack web systems, and production-focused engineering work.",
-    "seeProjects": "View products",
+    "title": "Turn ideas into products",
+    "description": "If you're interested in Shopify, web product development, or want to build something real together — feel free to reach out.",
+    "seeProjects": "View projects",
     "downloadCv": "Download CV",
     "hireMe": "Hire Me",
     "workTogether": "Let's Work Together",
@@ -38,21 +38,36 @@
     "linkedin": "LinkedIn",
     "email": "Email",
     "phone": "Phone",
-    "facebook": "Facebook"
+    "facebook": "Facebook",
+    "availableTag": "Available for focused production work",
+    "servicesTitle": "Services",
+    "servicesSubtitle": "Production-focused Shopify and full-stack engineering.",
+    "projectBriefTitle": "Project brief",
+    "workItems": [
+      "Shopify app development and storefront customization",
+      "Product options, variants, and merchant workflow systems",
+      "React, Remix, and Next.js frontend implementation",
+      "NestJS, Node.js APIs, CMS tools, and backend services"
+    ],
+    "projectBriefItems": [
+      ["01", "What you want to build"],
+      ["02", "Current store or product stage"],
+      ["03", "Timeline, priority, and budget range"]
+    ]
   },
   "projectsPage": {
-    "title": "Products and student projects",
-    "description": "Production Shopify apps, internal enterprise work, and selected personal projects from my student years."
+    "title": "Products & projects",
+    "description": "Products I've built: from production Shopify apps serving tens of thousands of merchants, to enterprise-grade internal systems, and personal side projects."
   },
   "projects": {
-    "title": "Products and projects",
-    "description": "Products I have built: from production Shopify apps serving tens of thousands of merchants, enterprise-grade internal management systems, to personal side projects.",
+    "title": "Products & projects",
+    "description": "Products I've built: from production Shopify apps serving tens of thousands of merchants, enterprise-grade internal management systems, to personal side projects.",
     "viewAll": "View all projects",
     "items": [
       {
         "title": "OPTIS Product Options, Variant",
         "logoUrl": "https://production-options-bucket.s3.us-east-2.amazonaws.com/po/dev-nghia-lc.myshopify.com-33131/1780217903084-249192545-download2.png",
-        "description": "Production Shopify application for complex product personalization, helping merchants configure option sets, conditional purchasing flows, and price-adjusted add-ons directly on the storefront.",
+        "description": "A Shopify app for advanced product customization — custom options, conditional logic, dynamic pricing, and storefront product configuration beyond Shopify's default variant limitations.",
         "meta": "Full-stack Engineer / 20,000+ installs / 5-star Shopify App Store",
         "imageAlt": "OPTIS Shopify app product interface",
         "category": "Shopify App",
@@ -64,20 +79,20 @@
           "Custom product options (dropdown, checkbox, swatch, file upload, text...)",
           "Conditional logic — show/hide options based on customer selections",
           "Add-on pricing per option",
-          "Live preview — customers see changes in real time on the product page",
-          "And more advanced customization features"
+          "Live preview — customers see changes instantly on the product page",
+          "And many more advanced customization features"
         ],
         "responsibilities": [
           "Full-stack ownership — admin UI, backend APIs & storefront runtime",
-          "Involved in the full product development process — from requirements analysis and technical design to feature development and production deployment",
-          "Merchant support — resolving technical issues, supporting customers & contributing to growth in installs, reviews, and maintaining a 5★ rating"
+          "Involved across the full product lifecycle — from requirements analysis and technical design to feature development and production deployment",
+          "Merchant support — resolving technical issues, assisting customers & contributing to install growth, reviews, and maintaining a 5★ app rating"
         ],
         "stack": ["React", "Remix", "NestJS", "KoaJS", "GraphQL", "MySQL", "Redis", "Shopify API"]
       },
       {
         "title": "OP Color Swatch Variant Images",
         "logoUrl": "https://production-options-bucket.s3.us-east-2.amazonaws.com/po/dev-nghia-lc.myshopify.com-33131/1780217912413-362617977-download3.png",
-        "description": "Built for Shopify variant experience app that turns complex catalogs into a clean visual buying flow with color swatches, variant-specific image galleries, combined listings, and SEO-friendly product navigation.",
+        "description": "A Shopify app for enhanced variant experience — multiple variant display styles, variant-specific image galleries, product grouping, and beyond the display limitations of default Shopify themes.",
         "meta": "Full-stack Engineer / 10,000+ installs / 5-star Shopify App Store",
         "imageAlt": "OP Color Swatch Shopify app variant interface",
         "category": "Shopify App",
@@ -87,57 +102,57 @@
         "rating": "5-star Shopify App Store",
         "features": [
           "Visual swatches replacing Shopify's default variant selector",
-          "Variant-specific image galleries — each variant shows its own images",
-          "Combined listings — merge separate products into one unified storefront listing",
-          "Collection page swatches — browse variants without entering the product page",
-          "And more display enhancement features"
+          "Variant image gallery — each variant displays its own image set",
+          "Combined listings — merge multiple products into a single storefront listing",
+          "Collection page swatches — browse variants directly from the collection page",
+          "And many more advanced display features"
         ],
         "responsibilities": [
           "Full-stack ownership — admin UI, backend APIs & storefront runtime",
-          "Involved in the full product development process — from requirements analysis and technical design to feature development and production deployment",
-          "Merchant support — resolving technical issues, supporting customers & contributing to growth in installs, reviews, and maintaining a 5★ rating"
+          "Involved across the full product lifecycle — from requirements analysis and technical design to feature development and production deployment",
+          "Merchant support — resolving technical issues, assisting customers & contributing to install growth, reviews, and maintaining a 5★ app rating"
         ],
         "stack": ["React", "Remix", "NestJS", "KoaJS", "GraphQL", "MySQL", "Redis", "Shopify API"]
       },
       {
         "title": "HAUIFOOD",
         "logoUrl": "https://production-options-bucket.s3.us-east-2.amazonaws.com/po/dev-nghia-lc.myshopify.com-33131/1780217954655-261312967-logo-square.23528da2d6c68d8beb4d.png",
-        "description": "Personal project during university — an e-commerce app for online food ordering, focused on user experience, order flow, and real-time interaction.",
+        "description": "A personal project during university — an e-commerce application for online food ordering, focused on user experience, order flow, and real-time interaction.",
         "meta": "Student project / Frontend Developer / 03/2024 - 06/2024",
-        "imageAlt": "HAUIFOOD student e-commerce project interface",
+        "imageAlt": "HAUIFOOD student project interface",
         "category": "Student Project",
         "link": "https://hauifood.com",
         "linkLabel": "Live demo",
         "githubLink": "https://github.com/haui-food",
-        "scale": "Personal student project",
+        "scale": "Personal project",
         "rating": "E-commerce · Frontend",
         "features": [
-          "E-commerce experience",
+          "E-commerce shopping experience",
           "Order flow & customer interaction",
           "User management & authentication",
-          "Realtime data sync",
+          "Real-time data synchronization",
           "Multi-language support"
         ],
         "responsibilities": [
           "ReactJS frontend development",
           "API integration & data handling",
           "Application state management",
-          "Realtime interaction implementation",
-          "Bug analysis & fixes"
+          "Real-time interaction implementation",
+          "Bug analysis & resolution"
         ],
         "stack": ["ReactJS", "JavaScript", "Material UI", "Bootstrap", "Redux Toolkit", "Axios", "SCSS", "Socket.IO Client", "i18n-react"]
       },
       {
         "title": "Mid-Autumn",
         "logoUrl": "https://production-options-bucket.s3.us-east-2.amazonaws.com/po/dev-nghia-lc.myshopify.com-33131/1780217933573-950668681-logo.png",
-        "description": "Personal project during university — an online mooncake selling app, focused on shopping experience, user management, and sales flow on web platform.",
+        "description": "A personal project during university — an online mooncake sales application, focused on shopping experience, user management, and end-to-end sales flow on the web platform.",
         "meta": "Student project / Full-stack Developer / 06/2024 - 10/2024",
-        "imageAlt": "Mid-Autumn student full-stack project interface",
+        "imageAlt": "Mid-Autumn student project interface",
         "category": "Student Project",
         "link": "https://mid-autumn-beta.vercel.app",
         "linkLabel": "Live demo",
         "githubLink": "https://github.com/lenghia0183/Mid-Autumn",
-        "scale": "Personal student project",
+        "scale": "Personal project",
         "rating": "Full-stack · Web App",
         "features": [
           "Online shopping experience",
@@ -152,18 +167,18 @@
           "Backend API development",
           "Authentication & user management",
           "Data integration & business logic",
-          "Deployment & optimization"
+          "Deployment & performance optimization"
         ],
         "stack": ["ReactJS", "Tailwind CSS", "Axios", "SWR", "Formik", "Firebase", "ExpressJS", "MongoDB", "JWT", "Cloudinary", "NodeMailer"]
       },
       {
         "title": "VTI Manufacturing Management Systems",
         "logoUrl": "https://production-options-bucket.s3.us-east-2.amazonaws.com/po/dev-nghia-lc.myshopify.com-33131/1780217886120-686653139-download1.png",
-        "description": "Internal management systems for manufacturing enterprises — supporting factory operations, production workflows, warehouse management, quality control, and business processes. Internal tools with no public links available.",
+        "description": "Internal management systems for manufacturing enterprises — supporting factory operations, production workflows, warehouse management, quality control, and enterprise business processes. Internal tools with no public links.",
         "meta": "VTI Solutions / ReactJS Intern / Internal enterprise tools",
-        "imageAlt": "VTI internal manufacturing systems project",
-        "category": "Internal Enterprise Tools",
-        "linkLabel": "Private internal project",
+        "imageAlt": "VTI internal management systems project",
+        "category": "Internal System",
+        "linkLabel": "Internal tool — no public link",
         "scale": "Manufacturing operations",
         "rating": "No public link",
         "features": [
@@ -177,7 +192,7 @@
           "ReactJS frontend development",
           "Business feature implementation",
           "API integration",
-          "Bug analysis & fixes"
+          "Bug analysis & resolution"
         ],
         "stack": ["ReactJS", "Material UI", "Redux", "Formik", "REST API", "Axios"]
       }
@@ -187,22 +202,22 @@
     "greeting": "Hello, I'm",
     "name": "Le Cong Nghia",
     "paragraphs": [
-      "Born in 2003, I am a Full-stack Developer specializing in building Shopify applications for merchants worldwide. I have end-to-end experience — from backend APIs and admin systems to storefront runtime scripts running directly on merchant themes.",
-      "I currently work at BSS Commerce, focusing on Shopify platform development and production web systems built on the React ecosystem — serving over 30,000 merchants on the Shopify App Store.",
-      "I write code that is clean, maintainable, and built to scale — and I enjoy exploring new technologies to apply them to real-world production problems."
+      "Born in 2003, I am a Full-stack Developer specializing in building Shopify applications and web products for real-world needs. I have hands-on experience across the stack — from backend services and admin systems to storefront runtime components serving merchants directly.",
+      "I currently work at BSS Commerce, focused on Shopify platform development and building applications that serve over 30,000 merchants on the Shopify App Store.",
+      "I prioritize software with clear architecture, maintainability, and scalability — and I enjoy finding the right approach for real-world engineering problems."
     ],
     "experience": "Experience",
     "education": "Education",
-    "skills": "Technical interests",
+    "skills": "Areas of interest",
     "stack": "Tech Stack",
     "showLess": "Show less",
     "showMore": "Show {count} more",
     "resetStack": "Reset stack",
     "skillsList": [
-      "Frontend Architecture",
+      "Software Architecture",
       "Clean Code",
       "Developer Experience",
-      "Performance Engineering"
+      "Performance Optimization"
     ],
     "techCategories": [
       ["Languages", "TypeScript", "JavaScript"],
@@ -220,7 +235,7 @@
       {
         "school": "Hanoi University of Industry",
         "degree": "Master's — Information Systems",
-        "period": "2025 - Present",
+        "period": "2026 - Present",
         "note": "In progress",
         "logoUrl": "https://production-options-bucket.s3.us-east-2.amazonaws.com/po/dev-nghia-lc.myshopify.com-33131/1780217978812-56616908-haui.png"
       },
@@ -238,13 +253,13 @@
         "logoUrl": "https://production-options-bucket.s3.us-east-2.amazonaws.com/po/dev-nghia-lc.myshopify.com-33131/1780217922968-943345868-download.png",
         "role": "Full-stack Developer / Shopify App Developer",
         "period": "2025 - Present",
-        "context": "Building Shopify applications for product customization, variant experience and ecommerce solutions serving tens of thousands of merchants on the Shopify App Store.",
+        "context": "Building Shopify applications for product customization, variant experience, and ecommerce solutions serving tens of thousands of merchants on the Shopify App Store.",
         "responsibilities": [
-          "Backend services & Shopify APIs development",
-          "Admin systems & merchant experience development",
-          "Storefront logic running on merchant themes",
+          "Backend services & Shopify API development",
+          "Admin system & merchant experience development",
+          "Storefront runtime logic on merchant themes",
           "Shopify platform services integration",
-          "App operations support & technical issue handling"
+          "App operations support & technical issue resolution"
         ],
         "modules": [
           "OPTIS Product Options, Variant — 20,000+ installs · 5-star",
@@ -258,13 +273,13 @@
         "logoUrl": "https://production-options-bucket.s3.us-east-2.amazonaws.com/po/dev-nghia-lc.myshopify.com-33131/1780217886120-686653139-download1.png",
         "role": "ReactJS Intern / Frontend Developer",
         "period": "06/2024 - 10/2024",
-        "context": "Contributed to 3 internal management systems for manufacturing enterprises: Yamaha WMSX (Smart Warehouse Management), Yamaha QMSX (Quality Management) and FujiX QMSX (Quality Management) — supporting factory operations, quality control and enterprise business workflows.",
+        "context": "Contributed to 3 internal management systems for manufacturing enterprises: Yamaha WMSX (Smart Warehouse Management), Yamaha QMSX (Quality Management), and FujiX QMSX (Quality Management) — supporting factory operations, quality control, and enterprise business workflows.",
         "responsibilities": [
           "Production & quality management modules",
-          "Dashboard & enterprise business workflows",
+          "Dashboard & enterprise business workflow development",
           "API integration & frontend data handling",
-          "UI components & interface system development",
-          "Bug analysis & fixes"
+          "UI component & design system development",
+          "Bug analysis & resolution"
         ],
         "modules": [
           "Yamaha WMSX — Smart Warehouse Management System",

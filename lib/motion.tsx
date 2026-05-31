@@ -81,6 +81,8 @@ export const reducedMotionVariants: Variants = {
   visible: { opacity: 1 },
 };
 
+export const EASE = [0.22, 1, 0.36, 1] as const;
+
 export const defaultTransition = {
   duration: 0.3,
   ease: [0.4, 0, 0.2, 1] as const,

@@ -8,8 +8,7 @@ import type { ReactNode } from "react";
 import { ContactButton } from "./contact-button";
 import { useI18n } from "@/lib/i18n";
 import { ASSETS } from "@/lib/constants";
-
-const EASE = [0.22, 1, 0.36, 1] as const;
+import { EASE } from "@/lib/motion";
 
 export function ContactCardCtas(): ReactNode {
   const { t } = useI18n();

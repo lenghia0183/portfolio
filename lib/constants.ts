@@ -19,6 +19,18 @@ export const SOCIAL_LINKS = {
   phone: `tel:${OWNER.phone}`,
 } as const;
 
+// ─── Kênh liên lạc (dùng ở contact-card & contact-page) ──────────────────────
+
+export const CONTACT_CHANNELS = [
+  { label: "Email",    value: OWNER.email,             href: SOCIAL_LINKS.email    },
+  { label: "Phone",   value: OWNER.phoneDisplay,       href: SOCIAL_LINKS.phone    },
+  { label: "GitHub",  value: "github.com/lenghia0183", href: SOCIAL_LINKS.github   },
+  { label: "LinkedIn",value: "nghia-le-366628384",     href: SOCIAL_LINKS.linkedin },
+  { label: "Facebook",value: "nghia.cong.le.2024",     href: SOCIAL_LINKS.facebook },
+] as const;
+
+export type ContactChannel = (typeof CONTACT_CHANNELS)[number];
+
 // ─── File tĩnh ────────────────────────────────────────────────────────────────
 
 export const ASSETS = {
@@ -34,3 +46,5 @@ export const ASSETS = {
     { id: "f", rotate: 5,  src: "/images/photo5.jpg" },
   ],
 } as const;
+
+export type Polaroid = (typeof ASSETS.polaroids)[number];

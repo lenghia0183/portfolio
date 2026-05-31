@@ -1,10 +1,11 @@
 "use client";
 
 import { ContactButton } from "@/components/contact/contact-button";
-import { track, EVENTS } from "@/lib/mixpanel";
-import { OWNER, SOCIAL_LINKS } from "@/lib/constants";
+import { GridBackground } from "@/components/ui/grid-background";
 import { FadeIn, ScaleUnblur } from "@/components/ui/motion-primitives";
 import { useI18n } from "@/lib/i18n";
+import { CONTACT_CHANNELS, OWNER, SOCIAL_LINKS, type ContactChannel } from "@/lib/constants";
+import { track, trackContactClick, EVENTS } from "@/lib/mixpanel";
 import {
   ArrowUpRight,
   BriefcaseBusiness,
@@ -21,51 +22,16 @@ import {
 import Link from "next/link";
 import type { ComponentType, ReactNode } from "react";
 
-type Channel = {
-  label: string;
-  value: string;
-  href: string;
-  icon: ComponentType<{ className?: string; strokeWidth?: number }>;
+const CHANNEL_ICONS: Record<string, ComponentType<{ className?: string }>> = {
+  Email: Mail,
+  Phone: Phone,
+  GitHub: Github,
+  LinkedIn: Linkedin,
+  Facebook: Facebook,
 };
 
-const CHANNELS: Channel[] = [
-  { label: "Email",    value: OWNER.email,          href: SOCIAL_LINKS.email,    icon: Mail },
-  { label: "Phone",   value: OWNER.phoneDisplay,    href: SOCIAL_LINKS.phone,    icon: Phone },
-  { label: "GitHub",  value: "github.com/lenghia0183", href: SOCIAL_LINKS.github, icon: Github },
-  { label: "LinkedIn",value: "nghia-le-366628384",  href: SOCIAL_LINKS.linkedin, icon: Linkedin },
-  { label: "Facebook",value: "nghia.cong.le.2024",  href: SOCIAL_LINKS.facebook, icon: Facebook },
-];
-
-const WORK_ITEMS_EN = [
-  "Shopify app development and storefront customization",
-  "Product options, variants, and merchant workflow systems",
-  "React, Remix, and Next.js frontend implementation",
-  "NestJS, Node.js APIs, CMS tools, and backend services",
-];
-
-const WORK_ITEMS_VI = [
-  "Phát triển Shopify app và tùy chỉnh storefront",
-  "Hệ thống product options, variants và merchant workflows",
-  "Phát triển frontend với React, Remix và Next.js",
-  "Backend services với NestJS, Node.js APIs và CMS tools",
-];
-
-const PROJECT_BRIEF_ITEMS_EN = [
-  ["01", "What you want to build"],
-  ["02", "Current store or product stage"],
-  ["03", "Timeline, priority, and budget range"],
-] as const;
-
-const PROJECT_BRIEF_ITEMS_VI = [
-  ["01", "Bạn muốn xây dựng gì"],
-  ["02", "Giai đoạn hiện tại của sản phẩm"],
-  ["03", "Timeline, độ ưu tiên và ngân sách"],
-] as const;
-
 export function ContactPageContent(): ReactNode {
-  const { t, language } = useI18n();
-  const WORK_ITEMS = language === "vi" ? WORK_ITEMS_VI : WORK_ITEMS_EN;
-  const PROJECT_BRIEF_ITEMS = language === "vi" ? PROJECT_BRIEF_ITEMS_VI : PROJECT_BRIEF_ITEMS_EN;
+  const { t } = useI18n();
 
   return (
     <main id="main-content" className="flex flex-1 flex-col">
@@ -74,11 +40,11 @@ export function ContactPageContent(): ReactNode {
           <div className="flex flex-wrap items-center gap-3">
             <span className="border-foreground/8 bg-foreground/[0.03] inline-flex items-center gap-2 rounded-full border px-3 py-1.5 font-mono text-[12px] text-foreground/62">
               <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
-              Available for focused production work
+              {t.contact.availableTag}
             </span>
             <span className="border-foreground/8 bg-background inline-flex items-center gap-2 rounded-full border px-3 py-1.5 font-mono text-[12px] text-foreground/55">
               <MapPin className="h-3.5 w-3.5" aria-hidden="true" />
-              Hanoi, Vietnam
+              {OWNER.location}
             </span>
           </div>
 
@@ -96,13 +62,10 @@ export function ContactPageContent(): ReactNode {
             <Link
               href={SOCIAL_LINKS.email}
               onClick={() => track(EVENTS.BAM_LAM_VIEC_CUNG_NHAU)}
-              className="border-foreground/8 focus-ring group bg-background text-foreground hover:bg-foreground/[0.04] inline-flex items-center gap-2 rounded-xl border px-5 py-2.5 text-sm font-medium transition-colors"
+              className="border-foreground/8 focus-ring group bg-background text-foreground hover:bg-foreground/4 inline-flex items-center gap-2 rounded-xl border px-5 py-2.5 text-sm font-medium transition-colors"
             >
               {t.contact.workTogether}
-              <Send
-                className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5"
-                aria-hidden="true"
-              />
+              <Send className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden="true" />
             </Link>
           </div>
         </FadeIn>
@@ -110,26 +73,7 @@ export function ContactPageContent(): ReactNode {
         <ScaleUnblur delay={0.08}>
           <div className="border-foreground/8 bg-background/80 relative overflow-hidden rounded-4xl border p-1.5 shadow-sm backdrop-blur">
             <div className="relative overflow-hidden rounded-[1.6rem] border border-foreground/8 bg-foreground/[0.03] dark:bg-[#080808] p-5">
-              {/* grid lines light */}
-              <div
-                className="pointer-events-none absolute inset-0 opacity-[0.45] dark:hidden"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(rgba(100,116,139,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(100,116,139,0.2) 1px, transparent 1px)",
-                  backgroundSize: "28px 28px",
-                }}
-                aria-hidden="true"
-              />
-              {/* grid lines dark */}
-              <div
-                className="pointer-events-none absolute inset-0 hidden opacity-35 dark:block"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px)",
-                  backgroundSize: "28px 28px",
-                }}
-                aria-hidden="true"
-              />
+              <GridBackground size={28} />
               <div className="relative flex items-center justify-between border-b border-foreground/8 pb-4">
                 <div>
                   <p className="font-mono text-[12px] uppercase tracking-[0.18em] text-foreground/40">
@@ -143,7 +87,7 @@ export function ContactPageContent(): ReactNode {
               </div>
 
               <div className="relative mt-5 grid gap-3">
-                {CHANNELS.map((channel) => (
+                {CONTACT_CHANNELS.map((channel) => (
                   <ChannelLink key={channel.href} channel={channel} />
                 ))}
               </div>
@@ -157,24 +101,19 @@ export function ContactPageContent(): ReactNode {
           <div className="border-foreground/8 bg-foreground/[0.025] rounded-3xl border p-6">
             <div className="flex items-center gap-3">
               <span className="border-foreground/10 bg-background inline-flex h-10 w-10 items-center justify-center rounded-xl border">
-                <BriefcaseBusiness
-                  className="h-4 w-4 text-foreground"
-                  aria-hidden="true"
-                />
+                <BriefcaseBusiness className="h-4 w-4 text-foreground" aria-hidden="true" />
               </span>
               <div>
                 <h2 className="text-[18px] font-semibold tracking-tight text-foreground">
-                  {language === "vi" ? "Dịch vụ" : "Services"}
+                  {t.contact.servicesTitle}
                 </h2>
                 <p className="mt-1 text-[14px] text-foreground/55">
-                  {language === "vi"
-                    ? "Shopify và full-stack engineering hướng production."
-                    : "Production-focused Shopify and full-stack engineering."}
+                  {t.contact.servicesSubtitle}
                 </p>
               </div>
             </div>
             <div className="mt-6 flex flex-wrap gap-2">
-              {WORK_ITEMS.map((item) => (
+              {t.contact.workItems.map((item) => (
                 <span
                   key={item}
                   className="rounded-full border border-foreground/8 bg-background px-3 py-1.5 text-[13px] text-foreground/70"
@@ -189,20 +128,16 @@ export function ContactPageContent(): ReactNode {
         <FadeIn delay={0.18}>
           <div className="border-foreground/8 bg-background rounded-3xl border p-6">
             <p className="font-mono text-[12px] uppercase tracking-[0.18em] text-foreground/38">
-              {language === "vi" ? "Thông tin dự án" : "Project brief"}
+              {t.contact.projectBriefTitle}
             </p>
             <div className="mt-5 grid gap-4 sm:grid-cols-3">
-              {PROJECT_BRIEF_ITEMS.map(([index, label]) => (
+              {t.contact.projectBriefItems.map(([index, label]) => (
                 <div
                   key={index}
                   className="rounded-2xl border border-foreground/8 bg-foreground/[0.025] p-4"
                 >
-                  <span className="font-mono text-[12px] text-foreground/35">
-                    {index}
-                  </span>
-                  <p className="mt-3 text-[15px] font-medium tracking-tight text-foreground">
-                    {label}
-                  </p>
+                  <span className="font-mono text-[12px] text-foreground/35">{index}</span>
+                  <p className="mt-3 text-[15px] font-medium tracking-tight text-foreground">{label}</p>
                 </div>
               ))}
             </div>
@@ -213,8 +148,8 @@ export function ContactPageContent(): ReactNode {
   );
 }
 
-function ChannelLink({ channel }: { channel: Channel }): ReactNode {
-  const Icon = channel.icon;
+function ChannelLink({ channel }: { channel: ContactChannel }): ReactNode {
+  const Icon = CHANNEL_ICONS[channel.label];
   const external = channel.href.startsWith("http");
 
   return (
@@ -222,24 +157,16 @@ function ChannelLink({ channel }: { channel: Channel }): ReactNode {
       href={channel.href}
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
-      onClick={() => {
-        if (channel.href.startsWith("mailto:")) track(EVENTS.BAM_LINK_EMAIL, { vi_tri: "contact-page" });
-        else if (channel.href.startsWith("tel:")) track(EVENTS.BAM_SO_DIEN_THOAI, { vi_tri: "contact-page" });
-        else track(EVENTS.BAM_MANG_XA_HOI, { mang: channel.label, vi_tri: "contact-page" });
-      }}
+      onClick={() => trackContactClick(channel.href, channel.label, "contact-page")}
       className="group flex items-center justify-between gap-4 rounded-2xl border border-foreground/8 bg-background/60 p-3 transition-colors hover:bg-foreground/4 dark:bg-white/[0.035] dark:hover:bg-white/6.5"
     >
       <span className="flex min-w-0 items-center gap-3">
         <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-foreground/10 bg-foreground/4 dark:bg-black/30">
-          <Icon className="h-4 w-4 text-foreground/60 dark:text-white/72" aria-hidden="true" />
+          {Icon ? <Icon className="h-4 w-4 text-foreground/60 dark:text-white/72" aria-hidden="true" /> : null}
         </span>
         <span className="min-w-0">
-          <span className="block text-[13px] text-foreground/45">
-            {channel.label}
-          </span>
-          <span className="block truncate text-[14px] font-medium text-foreground/85">
-            {channel.value}
-          </span>
+          <span className="block text-[13px] text-foreground/45">{channel.label}</span>
+          <span className="block truncate text-[14px] font-medium text-foreground/85">{channel.value}</span>
         </span>
       </span>
       <ArrowUpRight

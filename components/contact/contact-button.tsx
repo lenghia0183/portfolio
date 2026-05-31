@@ -8,9 +8,9 @@ import type { ReactNode } from "react";
 import { useI18n } from "@/lib/i18n";
 import { track, EVENTS } from "@/lib/mixpanel";
 import { OWNER } from "@/lib/constants";
+import { EASE } from "@/lib/motion";
 
 const EMAIL = OWNER.email;
-const EASE = [0.22, 1, 0.36, 1] as const;
 
 export function ContactButton({ href }: { href?: string } = {}): ReactNode {
   const { t } = useI18n();

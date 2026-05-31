@@ -7,6 +7,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useI18n, type Language } from "@/lib/i18n";
 import { track, EVENTS } from "@/lib/mixpanel";
+import { useReducedMotion } from "@/lib/motion";
 import {
   useEffect,
   useLayoutEffect,
@@ -42,13 +43,11 @@ function NavThemeToggle(): ReactNode {
   const { setTheme, resolvedTheme } = useTheme();
   const isDark = mounted && resolvedTheme === "dark";
 
+  const prefersReducedMotion = useReducedMotion();
+
   const toggleTheme = (event: React.MouseEvent<HTMLButtonElement>): void => {
     const next = isDark ? "light" : "dark";
     track(EVENTS.DOI_GIAO_DIEN, { giao_dien_moi: next === "dark" ? "tối" : "sáng" });
-
-    const prefersReducedMotion =
-      typeof window !== "undefined" &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     const supportsViewTransitions =
       typeof document !== "undefined" &&

@@ -8,8 +8,7 @@ import type { ReactNode } from "react";
 import { ContactButton } from "@/components/contact/contact-button";
 import { useI18n } from "@/lib/i18n";
 import { track, EVENTS } from "@/lib/mixpanel";
-
-const EASE = [0.22, 1, 0.36, 1] as const;
+import { EASE } from "@/lib/motion";
 
 export function HeroCtas(): ReactNode {
   const { t } = useI18n();

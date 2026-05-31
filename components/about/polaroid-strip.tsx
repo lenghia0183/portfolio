@@ -4,11 +4,10 @@ import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import { useRef, useSyncExternalStore, type ReactNode } from "react";
 
 
-import { ASSETS } from "@/lib/constants";
+import { ASSETS, type Polaroid } from "@/lib/constants";
+import { EASE } from "@/lib/motion";
 
 const PHOTOS = ASSETS.polaroids;
-
-const EASE = [0.22, 1, 0.36, 1] as const;
 
 function PolaroidCard({
   photo,
