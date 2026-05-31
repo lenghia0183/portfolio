@@ -2,10 +2,12 @@
 
 import { useI18n } from "@/lib/i18n";
 import Image from "next/image";
+import Link from "next/link";
 import type { ReactNode } from "react";
 
 type Entry = {
   school: string;
+  schoolUrl?: string;
   degree: string;
   period: string;
   note: string;
@@ -33,9 +35,21 @@ export function Education(): ReactNode {
             >
               <SchoolLogo entry={entry} />
               <div className="flex min-w-0 flex-col">
-                <span className="text-foreground text-[17px] font-semibold tracking-tight sm:text-[18px]">
-                  {entry.school}
-                </span>
+                <div className="flex items-center gap-2">
+                  <span className="text-foreground text-[17px] font-semibold tracking-tight sm:text-[18px]">
+                    {entry.school}
+                  </span>
+                  {entry.schoolUrl ? (
+                    <Link
+                      href={entry.schoolUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="focus-ring inline-flex items-center gap-1 rounded-full border border-foreground/10 bg-foreground/3 px-2.5 py-0.5 text-[11px] font-medium text-foreground/50 transition-colors hover:border-foreground/25 hover:text-foreground/80"
+                    >
+                      Website ↗
+                    </Link>
+                  ) : null}
+                </div>
                 <span className="text-foreground/65 mt-0.5 text-[14px] tracking-tight sm:text-[15px]">
                   {entry.degree}
                   <span className="text-foreground/30 mx-2">/</span>

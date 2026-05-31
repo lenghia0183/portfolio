@@ -238,6 +238,7 @@
     "educationItems": [
       {
         "school": "Hanoi University of Industry",
+        "schoolUrl": "https://www.haui.edu.vn/vn",
         "degree": "Master's — Information Systems",
         "period": "2026 - Present",
         "note": "In progress",
@@ -245,6 +246,7 @@
       },
       {
         "school": "Hanoi University of Industry",
+        "schoolUrl": "https://www.haui.edu.vn/vn",
         "degree": "Software Engineering",
         "period": "2021 - 2025",
         "note": "GPA 3.48 / 4.0",

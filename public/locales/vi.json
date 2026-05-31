@@ -238,6 +238,7 @@
     "educationItems": [
       {
         "school": "Đại học Công nghiệp Hà Nội",
+        "schoolUrl": "https://www.haui.edu.vn/vn",
         "degree": "Thạc sĩ — Hệ thống Thông tin",
         "period": "2026 - Hiện tại",
         "note": "Đang theo học",
@@ -245,6 +246,7 @@
       },
       {
         "school": "Đại học Công nghiệp Hà Nội",
+        "schoolUrl": "https://www.haui.edu.vn/vn",
         "degree": "Kỹ thuật Phần mềm",
         "period": "2021 - 2025",
         "note": "GPA 3.48 / 4.0",
