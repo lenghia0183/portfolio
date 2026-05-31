@@ -1,14 +1,14 @@
 "use client";
 
-import { Moon, Sun } from "lucide-react";
-import { motion } from "motion/react";
+import { Home, Layers, User, Mail, Moon, Sun, Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useI18n, type Language } from "@/lib/i18n";
 import { track, EVENTS } from "@/lib/mixpanel";
 import { useReducedMotion } from "@/lib/motion";
-import {
+import React, {
   useEffect,
   useLayoutEffect,
   useRef,
@@ -20,13 +20,14 @@ import {
 type NavItem = {
   labelKey: "home" | "projects" | "about" | "contact";
   href: string;
+  icon: React.ElementType;
 };
 
 const NAV_ITEMS: readonly NavItem[] = [
-  { labelKey: "home", href: "/" },
-  { labelKey: "projects", href: "/projects" },
-  { labelKey: "about", href: "/about" },
-  { labelKey: "contact", href: "/contact" },
+  { labelKey: "home", href: "/", icon: Home },
+  { labelKey: "projects", href: "/projects", icon: Layers },
+  { labelKey: "about", href: "/about", icon: User },
+  { labelKey: "contact", href: "/contact", icon: Mail },
 ];
 
 function useIsMounted(): boolean {
@@ -156,11 +157,11 @@ export function Nav(): ReactNode {
   const { t } = useI18n();
   const listRef = useRef<HTMLUListElement>(null);
   const itemRefs = useRef<Array<HTMLLIElement | null>>([]);
-  const [pillRect, setPillRect] = useState<{
-    x: number;
-    width: number;
-  } | null>(null);
+  const [pillRect, setPillRect] = useState<{ x: number; width: number } | null>(null);
   const [hasMeasured, setHasMeasured] = useState(false);
+  const [menuState, setMenuState] = useState<{ open: boolean; pathname: string }>({ open: false, pathname: "" });
+  const menuOpen = menuState.open && menuState.pathname === pathname;
+  const menuRef = useRef<HTMLDivElement>(null);
 
   const activeIndex = NAV_ITEMS.findIndex((item) =>
     item.href === "/"
@@ -172,7 +173,6 @@ export function Nav(): ReactNode {
     const list = listRef.current;
     const activeEl = activeIndex >= 0 ? itemRefs.current[activeIndex] : null;
     if (!list || !activeEl) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setPillRect(null);
       return;
     }
@@ -190,12 +190,22 @@ export function Nav(): ReactNode {
     return () => cancelAnimationFrame(id);
   }, [pillRect]);
 
+  // close menu on outside click
+  useEffect(() => {
+    if (!menuOpen) return;
+    const handler = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setMenuState({ open: false, pathname });
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, [menuOpen, pathname]);
+
   return (
-    <nav
-      aria-label={t.nav.label}
-      className="fixed top-6 left-1/2 z-50 -translate-x-1/2"
-    >
-      <div className="bg-background border-foreground/8 flex items-center gap-1 rounded-full border p-1.5 shadow-sm">
+    <nav aria-label={t.nav.label} className="fixed top-6 left-1/2 z-50 -translate-x-1/2">
+      {/* Desktop nav — hidden on mobile */}
+      <div className="bg-background border-foreground/8 hidden items-center gap-1 rounded-full border p-1.5 shadow-sm sm:flex">
         <ul ref={listRef} className="relative flex items-center gap-1">
           {pillRect && (
             <motion.span
@@ -216,9 +226,7 @@ export function Nav(): ReactNode {
             return (
               <li
                 key={item.href}
-                ref={(el) => {
-                  itemRefs.current[index] = el;
-                }}
+                ref={(el) => { itemRefs.current[index] = el; }}
                 className="relative"
               >
                 <Link
@@ -227,13 +235,7 @@ export function Nav(): ReactNode {
                   onClick={() => track(EVENTS.BAM_DIEU_HUONG, { nhan: t.nav[item.labelKey], duong_dan: item.href })}
                   className="focus-ring relative inline-flex cursor-pointer items-center justify-center rounded-full px-4 py-1.5 text-sm font-medium transition-colors duration-300"
                 >
-                  <span
-                    className={
-                      isActive
-                        ? "text-foreground relative z-10"
-                        : "text-foreground/60 hover:text-foreground relative z-10"
-                    }
-                  >
+                  <span className={isActive ? "text-foreground relative z-10" : "text-foreground/60 hover:text-foreground relative z-10"}>
                     {t.nav[item.labelKey]}
                   </span>
                 </Link>
@@ -243,6 +245,81 @@ export function Nav(): ReactNode {
         </ul>
         <NavLanguageToggle />
         <NavThemeToggle />
+      </div>
+
+      {/* Mobile nav — hamburger */}
+      <div ref={menuRef} className="sm:hidden">
+        <div className="bg-background border-foreground/8 flex items-center gap-1 rounded-full border p-1.5 shadow-sm">
+          <button
+            type="button"
+            aria-label="Menu"
+            aria-expanded={menuOpen}
+            onClick={() => setMenuState({ open: !menuOpen, pathname })}
+            className="focus-ring bg-foreground/5 ring-foreground/8 inline-flex h-8 w-8 cursor-pointer items-center justify-center rounded-full ring-1 transition-colors"
+          >
+            <AnimatePresence mode="wait" initial={false}>
+              {menuOpen ? (
+                <motion.span
+                  key="close"
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.15 }}
+                >
+                  <X className="text-foreground h-4 w-4" />
+                </motion.span>
+              ) : (
+                <motion.span
+                  key="open"
+                  initial={{ rotate: 90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -90, opacity: 0 }}
+                  transition={{ duration: 0.15 }}
+                >
+                  <Menu className="text-foreground h-4 w-4" />
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </button>
+          <NavLanguageToggle />
+          <NavThemeToggle />
+        </div>
+
+        <AnimatePresence>
+          {menuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -8, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -8, scale: 0.96 }}
+              transition={{ type: "spring", stiffness: 400, damping: 30 }}
+              className="bg-background border-foreground/8 mt-2 overflow-hidden rounded-2xl border shadow-lg"
+            >
+              {NAV_ITEMS.map((item, index) => {
+                const isActive = index === activeIndex;
+                const Icon = item.icon;
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    aria-current={isActive ? "page" : undefined}
+                    onClick={() => {
+                      track(EVENTS.BAM_DIEU_HUONG, { nhan: t.nav[item.labelKey], duong_dan: item.href });
+                      setMenuState({ open: false, pathname });
+                    }}
+                    className={`flex items-center gap-3 px-4 py-3 text-sm font-medium transition-colors ${
+                      isActive
+                        ? "text-foreground bg-foreground/5"
+                        : "text-foreground/60 hover:text-foreground hover:bg-foreground/4"
+                    }`}
+                  >
+                    <Icon aria-hidden="true" className="h-4 w-4 shrink-0" />
+                    {t.nav[item.labelKey]}
+                  </Link>
+                );
+              })}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </nav>
   );

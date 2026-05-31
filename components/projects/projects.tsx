@@ -189,7 +189,7 @@ function ProjectCard({
 
   return (
     <FadeIn delay={Math.min(index * 0.08, 0.24)}>
-      <article id={project.id} className="project-card border-foreground/8 bg-background flex h-full flex-col gap-5 rounded-3xl border p-4 sm:p-5">
+      <article id={project.id} className="project-card border-foreground/8 bg-background flex h-full flex-col gap-5 rounded-3xl border p-4 shadow-[0_8px_32px_rgba(0,0,0,0.16)] sm:p-5 dark:shadow-[0_8px_40px_rgba(0,0,0,0.6)]">
         <div
           className="relative overflow-hidden rounded-2xl p-4
             border border-slate-200 bg-linear-to-br from-slate-100 to-slate-50

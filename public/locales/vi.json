@@ -6,6 +6,10 @@
     "projects": "Sản phẩm",
     "about": "Giới thiệu",
     "contact": "Liên hệ",
+    "shortHome": "Trang chủ",
+    "shortProjects": "Sản phẩm",
+    "shortAbout": "Giới thiệu",
+    "shortContact": "Liên hệ",
     "language": "Đổi ngôn ngữ",
     "english": "Tiếng Anh",
     "vietnamese": "Tiếng Việt",
@@ -204,7 +208,7 @@
     "paragraphs": [
       "Sinh năm 2003, tôi là Full-stack Developer chuyên xây dựng Shopify applications và các sản phẩm web hướng tới nhu cầu thực tế. Tôi có kinh nghiệm làm việc từ backend services, hệ thống quản trị đến các thành phần xử lý logic phục vụ trực tiếp trải nghiệm của merchant.",
       "Hiện tại, tôi đang làm việc tại BSS Commerce, tập trung vào Shopify platform development và phát triển các ứng dụng phục vụ hơn 30.000 merchant trên Shopify App Store.",
-      "Tôi ưu tiên phần mềm có cấu trúc rõ ràng, dễ bảo trì và dễ mở rộng — đồng thời yêu thích việc tìm ra những cách tiếp cận phù hợp cho các bài toán thực tế."
+      "Tôi luôn muốn xây dựng phần mềm có cấu trúc rõ ràng, dễ bảo trì và dễ mở rộng — đồng thời luôn muốn tìm ra những cách tiếp cận phù hợp cho các bài toán thực tế."
     ],
     "experience": "Kinh nghiệm",
     "education": "Học vấn",
@@ -241,7 +245,7 @@
       },
       {
         "school": "Đại học Công nghiệp Hà Nội",
-        "degree": "Software Engineering",
+        "degree": "Kỹ thuật Phần mềm",
         "period": "2021 - 2025",
         "note": "GPA 3.48 / 4.0",
         "logoUrl": "https://production-options-bucket.s3.us-east-2.amazonaws.com/po/dev-nghia-lc.myshopify.com-33131/1780217978812-56616908-haui.png"
@@ -250,6 +254,7 @@
     "experienceItems": [
       {
         "company": "BSS Commerce",
+        "companyUrl": "https://bsscommerce.com/",
         "logoUrl": "https://production-options-bucket.s3.us-east-2.amazonaws.com/po/dev-nghia-lc.myshopify.com-33131/1780217922968-943345868-download.png",
         "role": "Full-stack Developer / Shopify App Developer",
         "period": "2025 - Present",
@@ -270,6 +275,7 @@
       },
       {
         "company": "VTI Solutions",
+        "companyUrl": "https://vti-solutions.vn/",
         "logoUrl": "https://production-options-bucket.s3.us-east-2.amazonaws.com/po/dev-nghia-lc.myshopify.com-33131/1780217886120-686653139-download1.png",
         "role": "ReactJS Intern / Frontend Developer",
         "period": "06/2024 - 10/2024",

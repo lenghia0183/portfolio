@@ -266,7 +266,7 @@ export function Stack(): ReactNode {
         {t.about.techCategories.map(([category, ...items]) => (
           <div
             key={category}
-            className="rounded-3xl border border-foreground/8 bg-background/75 p-4 shadow-sm backdrop-blur"
+            className="about-card rounded-3xl border border-foreground/8 bg-background/75 p-4 backdrop-blur"
           >
             <h4 className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground/45">
               {category}

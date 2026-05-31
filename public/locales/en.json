@@ -6,6 +6,10 @@
     "projects": "Projects",
     "about": "About",
     "contact": "Contact",
+    "shortHome": "Home",
+    "shortProjects": "Projects",
+    "shortAbout": "About",
+    "shortContact": "Contact",
     "language": "Change language",
     "english": "English",
     "vietnamese": "Vietnamese",
@@ -204,7 +208,7 @@
     "paragraphs": [
       "Born in 2003, I am a Full-stack Developer specializing in building Shopify applications and web products for real-world needs. I have hands-on experience across the stack — from backend services and admin systems to storefront runtime components serving merchants directly.",
       "I currently work at BSS Commerce, focused on Shopify platform development and building applications that serve over 30,000 merchants on the Shopify App Store.",
-      "I prioritize software with clear architecture, maintainability, and scalability — and I enjoy finding the right approach for real-world engineering problems."
+      "I always want to build software with clear architecture, maintainability, and scalability — and I always want to find the right approach for real-world engineering problems."
     ],
     "experience": "Experience",
     "education": "Education",
@@ -250,6 +254,7 @@
     "experienceItems": [
       {
         "company": "BSS Commerce",
+        "companyUrl": "https://bsscommerce.com/",
         "logoUrl": "https://production-options-bucket.s3.us-east-2.amazonaws.com/po/dev-nghia-lc.myshopify.com-33131/1780217922968-943345868-download.png",
         "role": "Full-stack Developer / Shopify App Developer",
         "period": "2025 - Present",
@@ -270,6 +275,7 @@
       },
       {
         "company": "VTI Solutions",
+        "companyUrl": "https://vti-solutions.vn/",
         "logoUrl": "https://production-options-bucket.s3.us-east-2.amazonaws.com/po/dev-nghia-lc.myshopify.com-33131/1780217886120-686653139-download1.png",
         "role": "ReactJS Intern / Frontend Developer",
         "period": "06/2024 - 10/2024",

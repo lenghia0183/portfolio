@@ -8,6 +8,7 @@ import type { ReactNode } from "react";
 
 type ExperienceItem = {
   company: string;
+  companyUrl?: string;
   role: string;
   period: string;
   context: string;
@@ -36,7 +37,7 @@ export function Experience(): ReactNode {
       <div className="relative flex flex-col gap-4">
         {entries.map((entry, index) => (
           <FadeIn key={entry.company} delay={index * 0.08}>
-            <article className="border-foreground/8 bg-background/80 rounded-3xl border p-5 shadow-sm backdrop-blur sm:p-6">
+            <article className="about-card border-foreground/8 bg-background/80 rounded-3xl border p-5 backdrop-blur sm:p-6">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                 <div className="flex items-center gap-3">
                   {entry.logoUrl ? (
@@ -45,9 +46,21 @@ export function Experience(): ReactNode {
                     </span>
                   ) : null}
                   <div>
-                    <h3 className="text-foreground text-[20px] font-semibold tracking-tight">
-                      {entry.company}
-                    </h3>
+                    <div className="flex items-center gap-2">
+                      <h3 className="text-foreground text-[20px] font-semibold tracking-tight">
+                        {entry.company}
+                      </h3>
+                      {entry.companyUrl ? (
+                        <Link
+                          href={entry.companyUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="focus-ring inline-flex items-center gap-1 rounded-full border border-foreground/10 bg-foreground/3 px-2.5 py-0.5 text-[11px] font-medium text-foreground/50 transition-colors hover:border-foreground/25 hover:text-foreground/80"
+                        >
+                          Website ↗
+                        </Link>
+                      ) : null}
+                    </div>
                     <p className="mt-1 text-[15px] text-foreground/65">
                       {entry.role}
                     </p>
