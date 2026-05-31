@@ -154,7 +154,7 @@ export function PortraitMorph({
 
     const loadImage = (src: string, target: Texture, captureSize = false): Promise<void> =>
       new Promise((resolve, reject) => {
-        const img = new Image();
+        const img = new window.Image();
         img.crossOrigin = "anonymous";
         img.onload = () => {
           target.image = img;
@@ -228,20 +228,6 @@ export function PortraitMorph({
       raf = requestAnimationFrame(tick);
     };
 
-    Promise.all([loadImage(srcA, texA, true), loadImage(srcB, texB)])
-      .then(() => {
-        setReady(true);
-        // Reset hover state — cursor may be inside while images were loading
-        hoverRef.current = false;
-        last = performance.now();
-        tick();
-        // Attach events only after images ready to avoid spurious triggers
-        container.addEventListener("pointerenter", onPointerEnter);
-        container.addEventListener("pointerleave", onPointerLeave);
-        container.addEventListener("pointermove", onPointerMove);
-      })
-      .catch(() => setReady(false));
-
     const computeEdgeDirection = (x: number, y: number): [number, number] => {
       const dxLeft = x;
       const dxRight = 1 - x;
@@ -286,13 +272,27 @@ export function PortraitMorph({
       lastPointerRef.current = { x, y, t: performance.now() };
     };
 
+    Promise.all([loadImage(srcA, texA, true), loadImage(srcB, texB)])
+      .then(() => {
+        setReady(true);
+        hoverRef.current = false;
+        last = performance.now();
+        tick();
+        // Attach on canvas (sits on top) — pointerenter does not bubble
+        // so must listen on the actual element receiving pointer events
+        canvas.addEventListener("pointerenter", onPointerEnter);
+        canvas.addEventListener("pointerleave", onPointerLeave);
+        canvas.addEventListener("pointermove", onPointerMove);
+      })
+      .catch(() => setReady(false));
+
     return () => {
       running = false;
       cancelAnimationFrame(raf);
       ro.disconnect();
-      container.removeEventListener("pointerenter", onPointerEnter);
-      container.removeEventListener("pointerleave", onPointerLeave);
-      container.removeEventListener("pointermove", onPointerMove);
+      canvas.removeEventListener("pointerenter", onPointerEnter);
+      canvas.removeEventListener("pointerleave", onPointerLeave);
+      canvas.removeEventListener("pointermove", onPointerMove);
       const ext = gl.getExtension("WEBGL_lose_context");
       if (ext) ext.loseContext();
       if (canvas.parentNode === container) container.removeChild(canvas);
