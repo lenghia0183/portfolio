@@ -1,5 +1,6 @@
 import { Nav } from "@/components/layout/nav";
 import { GoToTop } from "@/components/layout/go-to-top";
+import { Footer } from "@/components/layout/footer";
 import { PageBackdrop } from "@/components/layout/page-backdrop";
 import { MouseGlow } from "@/components/layout/mouse-glow";
 import { Providers } from "@/components/layout/providers";
@@ -67,6 +68,7 @@ export default function RootLayout({
           <Nav />
           <GoToTop />
           {children}
+          <Footer />
         </Providers>
       </body>
     </html>
