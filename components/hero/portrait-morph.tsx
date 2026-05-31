@@ -248,41 +248,49 @@ export function PortraitMorph({
       return [0, -1];
     };
 
-    const onPointerEnter = (e: PointerEvent) => {
-      // Ignore synthetic enter events fired when the element animates into the cursor
-      // (e.g. scale-up entrance animation). movementX/Y === 0 means cursor didn't move.
-      if (e.movementX === 0 && e.movementY === 0) return;
-      const rect = container.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width;
-      const y = 1 - (e.clientY - rect.top) / rect.height;
-      originRef.current = [x, y];
-      directionRef.current = computeEdgeDirection(x, y);
-      lastPointerRef.current = { x, y, t: performance.now() };
-      hoverRef.current = true;
-    };
     const onPointerLeave = (e: PointerEvent) => {
       const rect = container.getBoundingClientRect();
       const x = (e.clientX - rect.left) / rect.width;
       const y = 1 - (e.clientY - rect.top) / rect.height;
       originRef.current = [x, y];
       directionRef.current = computeEdgeDirection(x, y).map((v) => -v) as [number, number];
+      lastPointerRef.current = null;
       hoverRef.current = false;
     };
     const onPointerMove = (e: PointerEvent) => {
       const rect = container.getBoundingClientRect();
       const x = (e.clientX - rect.left) / rect.width;
       const y = 1 - (e.clientY - rect.top) / rect.height;
-      const last = lastPointerRef.current;
-      if (last && performance.now() - last.t < 80 && progressRef.current < 0.15) {
-        const vx = x - last.x;
-        const vy = y - last.y;
+      const prev = lastPointerRef.current;
+
+      if (!hoverRef.current) {
+        // First real move inside — compute entry direction from velocity
+        if (prev) {
+          const vx = x - prev.x;
+          const vy = y - prev.y;
+          const mag = Math.hypot(vx, vy);
+          if (mag > 0.005) {
+            originRef.current = [x, y];
+            directionRef.current = [vx / mag, vy / mag];
+          } else {
+            originRef.current = [x, y];
+            directionRef.current = computeEdgeDirection(x, y);
+          }
+        } else {
+          originRef.current = [x, y];
+          directionRef.current = computeEdgeDirection(x, y);
+        }
+        hoverRef.current = true;
+      } else if (prev && performance.now() - prev.t < 80 && progressRef.current < 0.15) {
+        const vx = x - prev.x;
+        const vy = y - prev.y;
         const mag = Math.hypot(vx, vy);
         if (mag > 0.01) directionRef.current = [vx / mag, vy / mag];
       }
+
       lastPointerRef.current = { x, y, t: performance.now() };
     };
 
-    container.addEventListener("pointerenter", onPointerEnter);
     container.addEventListener("pointerleave", onPointerLeave);
     container.addEventListener("pointermove", onPointerMove);
 
@@ -290,7 +298,6 @@ export function PortraitMorph({
       running = false;
       cancelAnimationFrame(raf);
       ro.disconnect();
-      container.removeEventListener("pointerenter", onPointerEnter);
       container.removeEventListener("pointerleave", onPointerLeave);
       container.removeEventListener("pointermove", onPointerMove);
       const ext = gl.getExtension("WEBGL_lose_context");
