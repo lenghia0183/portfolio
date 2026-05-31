@@ -39,8 +39,21 @@ function initMixpanel(): void {
     track_pageview: false,
     persistence: "localStorage",
     ignore_dnt: false,
+    track_utm: true,       // tự parse utm_source/medium/campaign từ URL
+    save_referrer: true,   // lưu trang giới thiệu (github.com, linkedin.com...)
+    cross_subdomain_cookie: false,
   });
   initialized = true;
+}
+
+function getUtmParams(): Record<string, string> {
+  const params = new URLSearchParams(window.location.search);
+  const utm: Record<string, string> = {};
+  ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"].forEach((key) => {
+    const val = params.get(key);
+    if (val) utm[key] = val;
+  });
+  return utm;
 }
 
 export function track(event: string, props?: Record<string, unknown>): void {
@@ -49,6 +62,11 @@ export function track(event: string, props?: Record<string, unknown>): void {
   mixpanel.track(event, {
     url: window.location.pathname,
     giao_dien: document.documentElement.classList.contains("dark") ? "tối" : "sáng",
+    referrer: document.referrer || null,
+    nguon_truy_cap: document.referrer
+      ? new URL(document.referrer).hostname
+      : (new URLSearchParams(window.location.search).get("utm_source") ?? "trực tiếp"),
+    ...getUtmParams(),
     ...props,
   });
 }
