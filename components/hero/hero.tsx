@@ -22,10 +22,10 @@ export function Hero(): ReactNode {
             </p>
 
             <h1 className="text-foreground text-[2.75rem] leading-[1.05] font-medium tracking-tight md:text-[2.5rem] lg:text-[3.65rem]">
-              <span className="block whitespace-nowrap">
+              <span className="block md:whitespace-nowrap">
                 {t.hero.titleLine1}
               </span>
-              <span className="block whitespace-nowrap">
+              <span className="block md:whitespace-nowrap">
                 {t.hero.titleLine2}
               </span>
             </h1>
