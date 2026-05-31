@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useState } from "react";
 import type { ReactNode } from "react";
 import { useI18n } from "@/lib/i18n";
+import { track, EVENTS } from "@/lib/mixpanel";
 
 const EMAIL = "lenghia0108@gmail.com";
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -16,6 +17,7 @@ export function ContactButton({ href }: { href?: string } = {}): ReactNode {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async (): Promise<void> => {
+    track(EVENTS.SAO_CHEP_EMAIL, { vi_tri: "contact-button" });
     try {
       await navigator.clipboard.writeText(EMAIL);
       setCopied(true);
@@ -44,6 +46,7 @@ export function ContactButton({ href }: { href?: string } = {}): ReactNode {
       >
         <Link
           href={href}
+          onClick={() => track(EVENTS.BAM_LIEN_HE, { vi_tri: "hero" })}
           className="focus-ring bg-foreground text-background relative inline-flex h-11 cursor-pointer items-center justify-center gap-2 rounded-xl px-5 text-sm font-medium"
         >
           <span>{t.contact.button}</span>

@@ -1,6 +1,7 @@
 "use client";
 
 import { ContactButton } from "@/components/contact/contact-button";
+import { track, EVENTS } from "@/lib/mixpanel";
 import { FadeIn, ScaleUnblur } from "@/components/ui/motion-primitives";
 import { useI18n } from "@/lib/i18n";
 import {
@@ -118,6 +119,7 @@ export function ContactPageContent(): ReactNode {
             <ContactButton />
             <Link
               href="mailto:lenghia0108@gmail.com"
+              onClick={() => track(EVENTS.BAM_LAM_VIEC_CUNG_NHAU)}
               className="border-foreground/8 focus-ring group bg-background text-foreground hover:bg-foreground/[0.04] inline-flex items-center gap-2 rounded-xl border px-5 py-2.5 text-sm font-medium transition-colors"
             >
               {t.contact.workTogether}
@@ -244,6 +246,11 @@ function ChannelLink({ channel }: { channel: Channel }): ReactNode {
       href={channel.href}
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
+      onClick={() => {
+        if (channel.href.startsWith("mailto:")) track(EVENTS.BAM_LINK_EMAIL, { vi_tri: "contact-page" });
+        else if (channel.href.startsWith("tel:")) track(EVENTS.BAM_SO_DIEN_THOAI, { vi_tri: "contact-page" });
+        else track(EVENTS.BAM_MANG_XA_HOI, { mang: channel.label, vi_tri: "contact-page" });
+      }}
       className="group flex items-center justify-between gap-4 rounded-2xl border border-foreground/8 bg-background/60 p-3 transition-colors hover:bg-foreground/4 dark:bg-white/[0.035] dark:hover:bg-white/6.5"
     >
       <span className="flex min-w-0 items-center gap-3">

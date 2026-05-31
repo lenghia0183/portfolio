@@ -6,6 +6,7 @@ import { useTheme } from "next-themes";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useI18n, type Language } from "@/lib/i18n";
+import { track, EVENTS } from "@/lib/mixpanel";
 import {
   useEffect,
   useLayoutEffect,
@@ -43,6 +44,7 @@ function NavThemeToggle(): ReactNode {
 
   const toggleTheme = (event: React.MouseEvent<HTMLButtonElement>): void => {
     const next = isDark ? "light" : "dark";
+    track(EVENTS.DOI_GIAO_DIEN, { giao_dien_moi: next === "dark" ? "tối" : "sáng" });
 
     const prefersReducedMotion =
       typeof window !== "undefined" &&
@@ -130,7 +132,10 @@ function NavLanguageToggle(): ReactNode {
           <button
             key={item}
             type="button"
-            onClick={() => setLanguage(item)}
+            onClick={() => {
+              setLanguage(item);
+              track(EVENTS.DOI_NGON_NGU, { ngon_ngu_moi: item === "en" ? "Tiếng Anh" : "Tiếng Việt" });
+            }}
             aria-label={item === "en" ? t.nav.english : t.nav.vietnamese}
             aria-pressed={active}
             className={`focus-ring inline-flex h-7 min-w-8 cursor-pointer items-center justify-center rounded-full px-2 text-[11px] font-semibold tracking-normal uppercase transition-colors ${
@@ -168,7 +173,6 @@ export function Nav(): ReactNode {
     const list = listRef.current;
     const activeEl = activeIndex >= 0 ? itemRefs.current[activeIndex] : null;
     if (!list || !activeEl) {
-      // This effect measures the active link and synchronizes the animated pill.
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setPillRect(null);
       return;
@@ -221,6 +225,7 @@ export function Nav(): ReactNode {
                 <Link
                   href={item.href}
                   aria-current={isActive ? "page" : undefined}
+                  onClick={() => track(EVENTS.BAM_DIEU_HUONG, { nhan: t.nav[item.labelKey], duong_dan: item.href })}
                   className="focus-ring relative inline-flex cursor-pointer items-center justify-center rounded-full px-4 py-1.5 text-sm font-medium transition-colors duration-300"
                 >
                   <span

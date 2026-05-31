@@ -7,6 +7,7 @@ import type { ReactNode } from "react";
 
 import { ContactButton } from "@/components/contact/contact-button";
 import { useI18n } from "@/lib/i18n";
+import { track, EVENTS } from "@/lib/mixpanel";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -28,6 +29,7 @@ export function HeroCtas(): ReactNode {
         >
           <Link
             href="/projects"
+            onClick={() => track(EVENTS.BAM_XEM_DU_AN, { vi_tri: "hero" })}
             className="border-foreground/5 focus-ring group bg-background text-foreground hover:bg-foreground/4 inline-flex cursor-pointer items-center gap-2 rounded-xl border px-5 py-2.5 text-sm font-medium shadow-2xl transition-colors"
           >
             {t.hero.viewWork}

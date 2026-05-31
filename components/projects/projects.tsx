@@ -15,6 +15,7 @@ import Link from "next/link";
 
 import { FadeIn } from "@/components/ui/motion-primitives";
 import { dictionaries, useI18n } from "@/lib/i18n";
+import { track, EVENTS } from "@/lib/mixpanel";
 
 type ProjectContent =
   (typeof dictionaries)[keyof typeof dictionaries]["projects"]["items"][number];
@@ -153,6 +154,7 @@ export function Projects({
           <div className="mt-12 flex justify-center sm:mt-16">
             <Link
               href="/projects"
+              onClick={() => track(EVENTS.BAM_XEM_TAT_CA_DU_AN)}
               className="border-foreground/8 focus-ring group bg-background text-foreground hover:bg-foreground/5 inline-flex cursor-pointer items-center gap-2 rounded-xl border px-5 py-2.5 text-sm font-medium transition-colors"
             >
               {t.projects.viewAll}
@@ -289,6 +291,12 @@ function ProjectCard({
                   href={publicLink}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => {
+                    const eventKey = linkLabel === "Shopify App Store"
+                      ? EVENTS.BAM_SHOPIFY_APP_STORE
+                      : EVENTS.BAM_LIVE_DEMO;
+                    track(eventKey, { ten_du_an: content.title });
+                  }}
                   className="focus-ring group inline-flex w-fit items-center gap-2 rounded-xl border border-foreground/8 px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-foreground/4"
                 >
                   {linkLabel}
@@ -307,6 +315,7 @@ function ProjectCard({
                   href={githubLink}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => track(EVENTS.BAM_GITHUB, { ten_du_an: content.title })}
                   className="focus-ring group inline-flex w-fit items-center gap-2 rounded-xl border border-foreground/8 px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-foreground/4"
                 >
                   GitHub

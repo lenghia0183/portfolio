@@ -8,6 +8,7 @@ import { ContactCardCtas } from "./contact-card-ctas";
 import { FadeIn } from "@/components/ui/motion-primitives";
 import { useI18n } from "@/lib/i18n";
 import { ShaderFlow } from "../shaders/shader-flow";
+import { track, EVENTS } from "@/lib/mixpanel";
 
 const CARD_FADE_MASK =
   "radial-gradient(ellipse 90% 110% at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.92) 40%, rgba(0,0,0,0.7) 70%, rgba(0,0,0,0.4) 90%, rgba(0,0,0,0.15) 100%)";
@@ -118,10 +119,16 @@ function SocialIcon({
   const props = isExternal
     ? { target: "_blank", rel: "noopener noreferrer" }
     : {};
+  const handleClick = () => {
+    if (href.startsWith("mailto:")) track(EVENTS.BAM_LINK_EMAIL, { vi_tri: "contact-card" });
+    else if (href.startsWith("tel:")) track(EVENTS.BAM_SO_DIEN_THOAI, { vi_tri: "contact-card" });
+    else track(EVENTS.BAM_MANG_XA_HOI, { mang: label, vi_tri: "contact-card" });
+  };
   return (
     <Link
       href={href}
       aria-label={label}
+      onClick={handleClick}
       className="border-foreground/8 hover:border-foreground/15 focus-ring bg-background text-foreground/70 hover:text-foreground inline-flex h-11 w-11 items-center justify-center rounded-xl border transition-colors"
       {...props}
     >
