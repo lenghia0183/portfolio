@@ -16,7 +16,7 @@ export function Skills(): ReactNode {
           {t.about.skillsList.map((skill) => (
             <span
               key={skill}
-              className="border-foreground/8 bg-background text-foreground/85 rounded-full border px-4 py-2 text-[14px] tracking-tight sm:text-[15px]"
+              className="border-foreground/8 bg-background text-foreground/85 hover:border-foreground/25 hover:bg-foreground/5 hover:text-foreground rounded-full border px-4 py-2 text-[14px] tracking-tight transition-all duration-200 hover:scale-105 sm:text-[15px]"
             >
               {skill}
             </span>

@@ -60,7 +60,7 @@ export function Footer(): ReactNode {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="focus-ring text-[13px] text-foreground/50 transition-colors hover:text-foreground/80"
+                    className="link-underline focus-ring text-[13px] text-foreground/50 transition-colors hover:text-foreground/80"
                   >
                     {t.nav[item.labelKey]}
                   </Link>

@@ -14,6 +14,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { FadeIn, ScrollFadeIn } from "@/components/ui/motion-primitives";
+import { CountUp } from "@/components/ui/count-up";
 import { useRef, type MouseEvent as ReactMouseEvent } from "react";
 import { dictionaries, useI18n } from "@/lib/i18n";
 import { track, EVENTS } from "@/lib/mixpanel";
@@ -26,6 +27,7 @@ type Project = {
   icon: ComponentType<{ className?: string }>;
   iconLabel: string;
   accent: string;
+  scaleValue?: number;
 };
 
 
@@ -35,12 +37,14 @@ const PROJECTS: Project[] = [
     icon: Boxes,
     iconLabel: "OPTIS",
     accent: "",
+    scaleValue: 20000,
   },
   {
     id: "op-swatch",
     icon: Palette,
     iconLabel: "OP Swatch",
     accent: "",
+    scaleValue: 10000,
   },
   {
     id: "hauifood",
@@ -197,7 +201,7 @@ function ProjectCard({
     const { left, top, width, height } = card.getBoundingClientRect();
     const x = (e.clientX - left) / width - 0.5;
     const y = (e.clientY - top) / height - 0.5;
-    card.style.transform = `perspective(800px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg) scale(1.01)`;
+    card.style.transform = `perspective(1000px) rotateY(${x * 3}deg) rotateX(${-y * 3}deg) scale(1.005)`;
   };
 
   const handleMouseLeave = () => {
@@ -268,16 +272,18 @@ function ProjectCard({
           </header>
 
           <div className="relative mt-12 grid gap-3 sm:grid-cols-2">
-            {[content.scale, content.rating].map((metric) => (
-              <div
-                key={metric}
-                className="rounded-2xl border border-slate-200 bg-white/60 p-3 backdrop-blur-sm dark:border-white/10 dark:bg-black/30"
-              >
-                <p className="font-mono text-[12px] leading-5 text-slate-600 dark:text-white/75">
-                  {metric}
-                </p>
-              </div>
-            ))}
+            <div className="rounded-2xl border border-slate-200 bg-white/60 p-3 backdrop-blur-sm dark:border-white/10 dark:bg-black/30">
+              <p className="font-mono text-[12px] leading-5 text-slate-600 dark:text-white/75">
+                {project.scaleValue ? (
+                  <><CountUp value={project.scaleValue} suffix="+" />{" "}{content.scale.replace(/^[\d.,]+\+?\s*/, "")}</>
+                ) : content.scale}
+              </p>
+            </div>
+            <div className="rounded-2xl border border-slate-200 bg-white/60 p-3 backdrop-blur-sm dark:border-white/10 dark:bg-black/30">
+              <p className="font-mono text-[12px] leading-5 text-slate-600 dark:text-white/75">
+                {content.rating}
+              </p>
+            </div>
           </div>
         </div>
 
