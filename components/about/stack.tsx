@@ -308,6 +308,7 @@ function ChipPill({ chip }: { chip: Chip }): ReactNode {
           alt=""
           width={18}
           height={18}
+          unoptimized
           className="h-5 w-5"
           draggable={false}
         />
