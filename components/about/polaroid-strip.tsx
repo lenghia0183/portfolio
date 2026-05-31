@@ -2,6 +2,7 @@
 
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import { useRef, useSyncExternalStore, type ReactNode } from "react";
+import Image from "next/image";
 
 
 import { ASSETS, type Polaroid } from "@/lib/constants";
@@ -62,11 +63,12 @@ function PolaroidCard({
       }}
       className="relative aspect-[3/4] w-[clamp(6rem,11vw,9rem)] shrink-0 overflow-hidden rounded-2xl border-6 border-neutral-300/40 bg-white p-1.5 dark:border-white/15 dark:bg-neutral-900"
     >
-      <img
+      <Image
         src={photo.src}
         alt=""
+        fill
         draggable={false}
-        className="absolute inset-0 h-full w-full rounded-xl object-cover select-none"
+        className="rounded-xl object-cover select-none"
       />
     </motion.div>
   );

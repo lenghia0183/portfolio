@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import { Renderer, Program, Mesh, Triangle, Transform, Texture } from "ogl";
+import Image from "next/image";
 
 export type PortraitMorphProps = {
   srcA: string;
@@ -304,11 +305,12 @@ export function PortraitMorph({
       style={{ position: "relative", width: "100%", height: "100%" }}
     >
       {!ready ? (
-        <img
+        <Image
           src={srcA}
           alt={alt}
+          fill
           draggable={false}
-          className="absolute inset-0 h-full w-full select-none object-cover"
+          className="select-none object-cover"
         />
       ) : null}
     </div>

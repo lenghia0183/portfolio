@@ -2,6 +2,7 @@
 
 import { useI18n } from "@/lib/i18n";
 import { RotateCcw } from "lucide-react";
+import Image from "next/image";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
 type Chip = {
@@ -274,7 +275,7 @@ export function Stack(): ReactNode {
               {items.map((item) => (
                 <span
                   key={item}
-                  className="rounded-full border border-foreground/8 bg-foreground/[0.03] px-3 py-1.5 text-[13px] text-foreground/72"
+                  className="rounded-full border border-foreground/8 bg-foreground/3 px-3 py-1.5 text-[13px] text-foreground/72"
                 >
                   {item}
                 </span>
@@ -302,7 +303,7 @@ function ChipPill({ chip }: { chip: Chip }): ReactNode {
         style={{ borderRadius: `${ICON_RADIUS}px` }}
         aria-hidden="true"
       >
-        <img
+        <Image
           src={chip.iconUrl ?? `https://cdn.simpleicons.org/${chip.slug}`}
           alt=""
           width={18}
