@@ -3,7 +3,8 @@
     "allow": [
       "Bash(node -e *)",
       "Bash(copy \"D:\\\\logo\\\\z7885600993561_b9c501a023a89c821f068c34c246e268.jpg\" \"d:\\\\nghialc-portfolio\\\\public\\\\images\\\\photo2.jpg\")",
-      "Bash(npm install *)"
+      "Bash(npm install *)",
+      "Bash(pnpm install *)"
     ],
     "additionalDirectories": [
       "D:\\logo"

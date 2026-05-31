@@ -39,7 +39,6 @@ function initMixpanel(): void {
     track_pageview: false,
     persistence: "localStorage",
     ignore_dnt: false,
-    track_utm: true,       // tự parse utm_source/medium/campaign từ URL
     save_referrer: true,   // lưu trang giới thiệu (github.com, linkedin.com...)
     cross_subdomain_cookie: false,
   });
